@@ -1,0 +1,51 @@
+@import "../../styles/colors/colors.scss";
+@import "../../styles/fonts/fonts.scss";
+
+.header {
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --line-height-md: 120%;
+  --line-height-lg: 160%;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  background-color: $whiteColor;
+  color: $blackColor;
+  .header__wrapper {
+    display: flex;
+    align-items: center;
+    width: 1260px;
+    height: 100%;
+    padding: 0 110px;
+    .header__pagination-links {
+      display: flex;
+      line-height: var(--line-height-md);
+      align-items: flex-end;
+      height: 60%;
+      margin-top: auto;
+      align-items: center;
+      a {
+        font: var(--font-size-md) $ralewayFont;
+        text-decoration: none;
+        margin-right: 16px;
+        text-transform: uppercase;
+        color: $blackColor;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        margin-bottom: 2px;
+      }
+      a:hover {
+        cursor: pointer;
+      }
+      .header__link_acitve {
+        color: $greenColor;
+        border-bottom: 2px solid #5ece7b;
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

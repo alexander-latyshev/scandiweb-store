@@ -1,13 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import client from "../../apollo/client";
+import { GET_CATEGORY_NAMES } from "../../apollo/queries";
 
-const initialState = {};
+const initialState = {
+  categoryNames: null,
+};
 
-export const fetchData = createSlice({
-  name: "fetchData",
+export const fetchCategoryNames = createAsyncThunk(
+  "store/fetchCategoryNames",
+  async () => {
+    const response = await client.query({
+      query: GET_CATEGORY_NAMES,
+    });
+    return response.data;
+  }
+);
+
+export const dataSlice = createSlice({
+  name: "store/fetchData",
   initialState,
-  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchCategoryNames.fulfilled, (state, action) => {
+      return {
+        ...state,
+        categoryNames: action.payload.categories,
+      };
+    });
+  },
 });
 
-export const {} = fetchData.actions;
+export const {} = dataSlice.actions;
 
-export default fetchData.reducer;
+export default dataSlice.reducer;
