@@ -2,10 +2,6 @@
 @import "../../styles/fonts/fonts.scss";
 
 .header {
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --line-height-md: 120%;
-  --line-height-lg: 160%;
   height: 80px;
   width: 100%;
   display: flex;
@@ -18,16 +14,18 @@
     align-items: center;
     width: 1260px;
     height: 100%;
-    padding: 0 110px;
+    padding: 0 90px;
+    justify-content: space-between;
     .header__pagination-links {
       display: flex;
-      line-height: var(--line-height-md);
+      line-height: $line-height-md;
       align-items: flex-end;
-      height: 60%;
+      height: 65%;
       margin-top: auto;
       align-items: center;
+      margin-left: 10px;
       a {
-        font: var(--font-size-md) $ralewayFont;
+        font: $font-size-md $ralewayFont;
         text-decoration: none;
         margin-right: 16px;
         text-transform: uppercase;
@@ -36,16 +34,28 @@
         display: flex;
         justify-content: start;
         align-items: start;
-        margin-bottom: 2px;
+        transition: color 0.2s ease-in-out;
       }
       a:hover {
+        color: $greenColor;
         cursor: pointer;
       }
       .header__link_acitve {
         color: $greenColor;
         border-bottom: 2px solid #5ece7b;
-        margin-bottom: 0px;
+        margin-bottom: -2px;
       }
+    }
+    .header__logo {
+      position: relative;
+      right: 5%;
+      top: 5px;
+    }
+    .header__dropdown {
+      display: flex;
+      align-items: center;
+      margin-right: 6px;
+      height: 100%;
     }
   }
 }

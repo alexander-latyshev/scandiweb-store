@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.currencies .currencies__currency-list, .currencies {
+  font: 18px "Raleway", sans-serif;
+  color: #1d1f22;
+  line-height: 160%;
+  font-weight: 500;
+}
+
+.currencies {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 30px;
+  width: 40px;
+  position: relative;
+  outline: #5ece7b;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.currencies .currencies__selected-item {
+  display: flex;
+  width: 30px;
+  text-align: justify;
+}
+.currencies .currencies__selected-item::after,
+.currencies .currencies__selected-item_active::after {
+  display: block;
+  content: url("../../../assets/Vector.svg");
+  position: relative;
+}
+.currencies .currencies__selected-item::after {
+  transform: rotate(180deg);
+  margin-left: auto;
+  top: 5px;
+}
+.currencies .currencies__selected-item_active::after {
+  content: url("../../../assets/Vector.svg");
+  bottom: 30px;
+  left: 21px;
+  margin-left: auto;
+}
+.currencies .currencies__currency-list_hidden {
+  display: none;
+}
+.currencies .currencies__currency-list {
+  border: 1px solid #eeeeee;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 114px;
+  bottom: 15px;
+  right: 30px;
+  filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+}
+.currencies .currencies__currency-list li {
+  background-color: #ffffff;
+  list-style: none;
+  height: 45px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 150ms ease-in-out;
+}
+.currencies .currencies__currency-list li:hover {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: #eeeeee;
+  color: #5ece7b;
+}/*# sourceMappingURL=currencyList.css.map */

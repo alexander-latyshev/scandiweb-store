@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategoryNames } from "../../redux/reducers/dataSlice";
 import { Link, Navigate } from "react-router-dom";
 import { Triangle } from "react-loader-spinner";
+import logo from "../../assets/store-logo.svg";
 import "./header.css";
+import CurrencyList from "../dropdown/currencyList/currencyList";
+import DropdownCart from "../dropdown/dropdownCart/dropdownCart";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -44,8 +47,13 @@ const Header = () => {
               })
             : null}
         </nav>
-        <img />
-        <div></div>
+
+        <img src={logo} className="header__logo" />
+
+        <div className="header__dropdown">
+          <CurrencyList />
+          <DropdownCart />
+        </div>
       </div>
     </header>
   );

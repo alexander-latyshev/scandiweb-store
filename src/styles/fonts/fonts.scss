@@ -1,3 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 $ralewayFont: "Raleway", sans-serif;
+
+/// FONT SIZE
+$h1-font-size: 42px;
+$h2-font-size: 30px;
+
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+
+/// LINE HEIGHT
+$line-height-sm: 90%;
+$line-height-md: 120%;
+$line-height-lg: 160%;
+
+/// FONT WEIGHTS
+$strong-weight-md: 500;
+$strong-weight-bd: 700;
+
+/// VARIABLES
+// --font-size-sm: 14px;
+// --font-size-md: 16px;
+// --line-height-sm: 90%;
+// --line-height-md: 120%;
+// --line-height-lg: 160%;

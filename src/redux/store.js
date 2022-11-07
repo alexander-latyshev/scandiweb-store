@@ -4,14 +4,14 @@ import {
   createRouterReducer,
 } from "@lagunovsky/redux-react-router";
 import { createBrowserHistory } from "history";
-import { cartSlice } from "./reducers/cartSlice";
+import { storeSlice } from "./reducers/storeSlice";
 import { dataSlice } from "./reducers/dataSlice";
 
 export const history = createBrowserHistory();
 export const routerMiddleware = createRouterMiddleware(history);
 
 export const storeReducer = combineReducers({
-  cart: cartSlice.reducer,
+  store: storeSlice.reducer,
   data: dataSlice.reducer,
   router: createRouterReducer(history),
 });

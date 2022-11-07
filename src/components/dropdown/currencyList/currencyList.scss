@@ -1,0 +1,81 @@
+@import "../../../styles/colors/colors.scss";
+@import "../../../styles/fonts/fonts.scss";
+
+%textStyle {
+  font: $font-size-lg $ralewayFont;
+  color: $blackColor;
+  line-height: $line-height-lg;
+  font-weight: $strong-weight-md;
+}
+.currencies {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 30px;
+  width: 40px;
+  position: relative;
+  outline: $greenColor;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  margin-top: 10px;
+  margin-right: 5px;
+  @extend %textStyle;
+  .currencies__selected-item {
+    display: flex;
+    width: 30px;
+    text-align: justify;
+  }
+  .currencies__selected-item::after,
+  .currencies__selected-item_active::after {
+    display: block;
+    content: url("../../../assets/Vector.svg");
+    position: relative;
+  }
+  .currencies__selected-item::after {
+    transform: rotate(180deg);
+    margin-left: auto;
+    top: 5px;
+  }
+  .currencies__selected-item_active::after {
+    content: url("../../../assets/Vector.svg");
+    bottom: 30px;
+    left: 21px;
+    margin-left: auto;
+  }
+  .currencies__currency-list_hidden {
+    display: none;
+  }
+  .currencies__currency-list {
+    border: 1px solid $hoverGreyColor;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 114px;
+    bottom: 15px;
+    right: 30px;
+    filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+    @extend %textStyle;
+    li {
+      background-color: $whiteColor;
+      list-style: none;
+      height: 45px;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: color 150ms ease-in-out;
+    }
+    li:hover {
+      cursor: pointer;
+      user-select: none;
+      background: #eeeeee;
+      color: $greenColor;
+    }
+  }
+}
