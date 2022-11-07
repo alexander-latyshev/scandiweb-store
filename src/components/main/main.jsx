@@ -1,10 +1,14 @@
 import React from "react";
 import "./main.css";
+import { Route, Routes } from "react-router-dom";
+import CategoryPage from "../../pages/categoryPage/categoryPage";
 
 const Main = () => {
   return (
     <main className="main">
-      <h1>Main</h1>
+      <Routes>
+        <Route element={<CategoryPage />} path="/:categoryName" />
+      </Routes>
     </main>
   );
 };

@@ -1,0 +1,21 @@
+@import "../colors/colors.scss";
+@import "../fonts/fonts.scss";
+
+%fontModule {
+  color: $blackColor;
+  font: $font-size-lg $ralewayFont;
+}
+
+%strongModule {
+  color: $blackColor;
+  font: $font-size-lg $ralewayFont;
+  line-height: $line-height-lg;
+  font-weight: $strong-weight-md;
+}
+
+%h2Module {
+  color: $blackColor;
+  font: 32px $ralewayFont;
+  text-transform: uppercase;
+  font-weight: $strong-weight-bd;
+}

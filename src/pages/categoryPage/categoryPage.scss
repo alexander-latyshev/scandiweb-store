@@ -1,0 +1,36 @@
+@import "../../styles/colors/colors.scss";
+@import "../../styles/fonts/fonts.scss";
+@import "../../styles/templates/templates.scss";
+
+.category {
+  display: flex;
+  flex-direction: column;
+  width: 1440px;
+  margin-top: 90px;
+  h1 {
+    @extend %fontModule;
+    margin: 0;
+    font-size: $h1-font-size;
+    text-transform: capitalize;
+    margin-left: 100px;
+  }
+  .category-products {
+    margin-top: 110px;
+    max-width: 1440px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 385px);
+    grid-gap: 40px;
+    height: 100%;
+  }
+  @media screen and (max-width: 1250px) {
+    .category-products {
+      grid-template-columns: repeat(2, 385px);
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .category-products {
+      grid-template-columns: repeat(1, 385px);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../styles/colors/colors.scss";
+@import "../../styles/fonts/fonts.scss";
+@import "../../styles/templates/templates.scss";
+
+@mixin fontz($fs, $fw) {
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+.product-card {
+  @extend %fontModule;
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  height: 444px;
+  text-decoration: none;
+  background: $whiteColor;
+  // border: 1px solid $hoverGreyColor;
+  padding: 16px;
+  text-align: start;
+  filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+  img {
+    align-self: center;
+    width: 330px;
+    height: 354px;
+    object-fit: contain;
+  }
+  h2 {
+    margin: 0;
+    padding: 0;
+    margin-top: 24px;
+    @include fontz(18px, 300);
+    line-height: $line-height-lg;
+  }
+  strong {
+    @extend %strongModule;
+    list-style: none;
+  }
+  &:hover {
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+  }
+}

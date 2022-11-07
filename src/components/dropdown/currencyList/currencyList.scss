@@ -1,12 +1,7 @@
 @import "../../../styles/colors/colors.scss";
 @import "../../../styles/fonts/fonts.scss";
+@import "../../../styles/templates/templates.scss";
 
-%textStyle {
-  font: $font-size-lg $ralewayFont;
-  color: $blackColor;
-  line-height: $line-height-lg;
-  font-weight: $strong-weight-md;
-}
 .currencies {
   display: flex;
   flex-direction: column;
@@ -37,7 +32,8 @@
   .currencies__selected-item::after {
     transform: rotate(180deg);
     margin-left: auto;
-    top: 2px;
+    top: 5px;
+    right: 1px;
   }
   .currencies__selected-item_active::after {
     content: url("../../../assets/Vector.svg");
@@ -57,7 +53,7 @@
     bottom: 10px;
     right: 30px;
     filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
-    @extend %textStyle;
+    @extend %strongModule;
     li {
       background-color: $whiteColor;
       list-style: none;

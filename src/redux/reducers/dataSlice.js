@@ -1,10 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import client from "../../apollo/client";
-import { FETCH_CATEGORY_NAMES, FETCH_CURRENCIES } from "../../apollo/queries";
+import {
+  FETCH_CATEGORY,
+  FETCH_CATEGORY_NAMES,
+  FETCH_CURRENCIES,
+} from "../../apollo/queries";
 
 const initialState = {
   categoryNames: null,
   currencies: null,
+  products: null,
 };
 
 export const fetchCategoryNames = createAsyncThunk(
@@ -27,6 +32,19 @@ export const fetchCurrencies = createAsyncThunk(
   }
 );
 
+export const fetchProducts = createAsyncThunk(
+  "store/fetchProducts",
+  async (categoryName) => {
+    const response = await client.query({
+      query: FETCH_CATEGORY,
+      variables: {
+        categoryName: categoryName,
+      },
+    });
+    return response.data;
+  }
+);
+
 export const dataSlice = createSlice({
   name: "store/fetchData",
   initialState,
@@ -42,6 +60,12 @@ export const dataSlice = createSlice({
         return {
           ...state,
           currencies: action.payload.currencies,
+        };
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        return {
+          ...state,
+          products: action.payload.category.products,
         };
       });
   },

@@ -14,8 +14,9 @@ const Header = () => {
   const categories = useSelector((state) => state.data.categoryNames);
   useEffect(() => {
     dispatch(fetchCategoryNames());
-  });
-  if (!categories)
+  }, []);
+
+  if (!categories) {
     return (
       <Triangle
         height={60}
@@ -24,6 +25,8 @@ const Header = () => {
         wrapperStyle={{ margin: 10 }}
       />
     );
+  }
+
   if (location === "/") return <Navigate to={categories[0].name} />;
   return (
     <header className="header">

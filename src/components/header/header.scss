@@ -1,5 +1,6 @@
 @import "../../styles/colors/colors.scss";
 @import "../../styles/fonts/fonts.scss";
+@import "../../styles/templates/templates.scss";
 
 .header {
   height: 80px;
@@ -8,6 +9,7 @@
   position: fixed;
   justify-content: center;
   background-color: $whiteColor;
+  z-index: 1;
   color: $blackColor;
   .header__wrapper {
     display: flex;

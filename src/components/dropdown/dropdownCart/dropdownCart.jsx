@@ -14,10 +14,10 @@ const DropdownCart = () => {
   };
 
   useEffect(() => {
-    document.body.addEventListener("mouseup", handleClickOutside, true);
+    document.body.addEventListener("mousedown", handleClickOutside, true);
     document.body.addEventListener("keydown", pressToClose, false);
     return () => {
-      document.body.removeEventListener("mouseup", handleClickOutside, true);
+      document.body.removeEventListener("mousedown", handleClickOutside, true);
       document.body.removeEventListener("keydown", pressToClose, false);
     };
   });
