@@ -21,6 +21,7 @@
   filter: drop-shadow(0px 4px 35px $shadowColor);
   -webkit-filter: drop-shadow(0px 4px 35px $shadowColor);
   -moz-filter: drop-shadow(0px 4px 35px $shadowColor);
+  @extend %userSelect;
   img {
     align-self: center;
     width: 330px;

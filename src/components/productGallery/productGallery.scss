@@ -23,6 +23,7 @@
       width: 79px;
       height: 80px;
       margin-bottom: 32px;
+      @extend %userSelect;
       &:hover {
         cursor: pointer;
       }
@@ -38,5 +39,6 @@
     height: 100%;
     max-width: 611px;
     max-height: 511px;
+    @extend %userSelect;
   }
 }

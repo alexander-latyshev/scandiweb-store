@@ -43,6 +43,7 @@ const Header = () => {
                         ? "header__link_acitve"
                         : ""
                     }
+                    draggable={false}
                   >
                     {category.name}
                   </Link>
@@ -51,7 +52,7 @@ const Header = () => {
             : null}
         </nav>
 
-        <img src={logo} className="header__logo" />
+        <img src={logo} className="header__logo" draggable={false} />
 
         <div className="header__dropdown">
           <CurrencyList />

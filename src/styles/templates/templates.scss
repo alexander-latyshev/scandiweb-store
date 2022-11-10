@@ -16,6 +16,13 @@
   font: $font-size-md $robotoFont;
 }
 
+%userSelect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 %strongModule {
   color: $blackColor;
   line-height: $line-height-lg;

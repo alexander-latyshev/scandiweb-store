@@ -37,6 +37,7 @@
         justify-content: start;
         align-items: start;
         transition: color 0.2s ease-in-out;
+        @extend %userSelect;
       }
       a:hover {
         color: $greenColor;
@@ -52,6 +53,7 @@
       position: relative;
       right: 5%;
       top: 5px;
+      @extend %userSelect;
     }
     .header__dropdown {
       display: flex;
