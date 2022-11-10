@@ -4,12 +4,14 @@ import {
   FETCH_CATEGORY,
   FETCH_CATEGORY_NAMES,
   FETCH_CURRENCIES,
+  FETCH_PRODUCT,
 } from "../../apollo/queries";
 
 const initialState = {
   categoryNames: null,
   currencies: null,
   products: null,
+  currentProduct: null,
 };
 
 export const fetchCategoryNames = createAsyncThunk(
@@ -45,6 +47,19 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+export const fetchProduct = createAsyncThunk(
+  "store/fetchProduct",
+  async (productID) => {
+    const response = await client.query({
+      query: FETCH_PRODUCT,
+      variables: {
+        productID: productID,
+      },
+    });
+    return response.data.product;
+  }
+);
+
 export const dataSlice = createSlice({
   name: "store/fetchData",
   initialState,
@@ -66,6 +81,12 @@ export const dataSlice = createSlice({
         return {
           ...state,
           products: action.payload.category.products,
+        };
+      })
+      .addCase(fetchProduct.fulfilled, (state, action) => {
+        return {
+          ...state,
+          currentProduct: action.payload,
         };
       });
   },

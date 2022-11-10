@@ -11,6 +11,7 @@
     background: url("../../../assets/cart.svg") no-repeat center;
     cursor: pointer;
     .dropdown-cart__menu {
+      cursor: default;
       width: 325px;
       min-height: 677px;
       position: relative;

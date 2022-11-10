@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+.product-page .product-info .product-info__brand, .product-page .product-info .product-info__title {
+  color: #1d1f22;
+  font: 18px "Raleway", sans-serif;
+}
+
+.product-page .product-info .product-info__price {
+  color: #1d1f22;
+  line-height: 160%;
+  font-weight: 700;
+}
+.product-page .product-info .product-info__price * {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.product-page .product-info .product-info__title {
+  color: #1d1f22;
+  font: "Raleway", sans-serif;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+}
+
+.product-page {
+  display: flex;
+  justify-content: space-between;
+  width: 1260px;
+  padding: 0 100px 190px;
+}
+.product-page .product-info {
+  width: 386px;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-right: 13px;
+}
+.product-page .product-info .product-info__title {
+  font: "Raleway", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 28px;
+}
+.product-page .product-info .product-info__brand {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 27px;
+  margin-top: 15px;
+}
+.product-page .product-info .product-info__price {
+  text-transform: uppercase;
+  margin-top: 36px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+}
+.product-page .product-info .product-info__price p {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.product-page .product-info .product-page__add-cart {
+  width: 292px;
+  height: 52px;
+  background-color: #5ece7b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: none;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  transition: box-shadow 0.3s ease-in-out;
+  font: 16px "Raleway", sans-serif;
+  line-height: 120%;
+  font-weight: 600;
+  margin-top: 30px;
+}
+.product-page .product-info .product-page__add-cart:hover {
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #5ece7b;
+}
+.product-page .product-info .product-page__add-cart:active {
+  opacity: 0.9;
+}
+.product-page .product-info .product-page__description {
+  margin-top: 40px;
+  font-size: 16px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  color: #1d1f22;
+  line-height: 160%;
+}/*# sourceMappingURL=productPage.css.map */

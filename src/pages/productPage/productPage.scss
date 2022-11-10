@@ -1,0 +1,68 @@
+@import "../../styles/colors/colors.scss";
+@import "../../styles/fonts/fonts.scss";
+@import "../../styles/templates/templates.scss";
+
+@mixin blockSize($w, $h) {
+  min-width: calc($w / 10);
+  min-height: calc($h / 10);
+  max-width: $w;
+  max-height: $h;
+}
+@mixin textStyle($s, $w, $lh) {
+  font-size: $s;
+  font-weight: $w;
+  line-height: $lh;
+  @extend %fontModule;
+}
+
+$padding-block-info: 12px;
+
+.product-page {
+  display: flex;
+  justify-content: space-between;
+  width: 1260px;
+  padding: 0 100px 190px;
+  .product-info {
+    width: calc(410px - $padding-block-info * 2);
+    padding: 0 $padding-block-info;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    margin-right: 13px;
+    .product-info__title {
+      @include titleFonts($h2-font-size, $strong-weight-bd, 28px);
+    }
+    .product-info__brand {
+      @include textStyle($h2-font-size, $font-weght-sm, 27px);
+      margin-top: 15px;
+    }
+    .product-info__price {
+      @extend %strongModule;
+      text-transform: uppercase;
+      margin-top: 36px;
+      font-family: $robotoFont;
+      font-weight: 700;
+
+      p {
+        font-family: $ralewayFont;
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+    .product-page__add-cart {
+      @include button-cart(292px, 52px, $greenColor);
+      margin-top: 30px;
+      &:active {
+        opacity: 0.9;
+      }
+    }
+    .product-page__description {
+      margin-top: 40px;
+      font-size: 16px;
+      font-family: $robotoFont;
+      font-weight: 400;
+      color: $blackColor;
+      line-height: $line-height-lg;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "../../styles/colors/colors.scss";
+@import "../../styles/fonts/fonts.scss";
+@import "../../styles/templates/templates.scss";
+
+.image-switchers {
+  display: flex;
+  position: relative;
+  left: 0;
+
+  .image-switchers__switch-btn {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.73);
+    border: none;
+    margin-right: 10px;
+    transition: background-color 0.2s ease-in-out;
+    background-repeat: no-repeat;
+    background-position: center;
+    &:hover {
+      cursor: pointer;
+      background-color: $blackColor;
+    }
+    &:active {
+      background-color: black;
+    }
+  }
+  button:first-child {
+    background-image: url("../../assets/switch-img-left.svg");
+  }
+  button:last-child {
+    background-image: url("../../assets/switch-img-right.svg");
+  }
+}

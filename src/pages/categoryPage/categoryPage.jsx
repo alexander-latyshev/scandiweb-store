@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./categoryPage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import { fetchProducts } from "../../redux/reducers/dataSlice";
 import { Triangle } from "react-loader-spinner";
 import ProductCard from "../../components/productCard/productCard";
@@ -11,6 +10,7 @@ const CategoryPage = () => {
   const selectedCategory = useSelector(
     (state) => state.router.location.pathname.split("/")[1]
   );
+  const location = useSelector((state) => state.router.location.pathname);
   const selectedCurrency = useSelector((state) => state.store.selectedCurrency);
   const products = useSelector((state) => state.data.products);
   useEffect(() => {
@@ -26,7 +26,7 @@ const CategoryPage = () => {
         wrapperStyle={{ margin: 10 }}
       />
     );
-  // console.log(selectedCurrency);
+
   return (
     <section className="category">
       <h1>{selectedCategory}</h1>
@@ -39,13 +39,15 @@ const CategoryPage = () => {
           });
           // if (!price) return;
           // return <span key={id}>{product.name}</span>;
-
+          
           return (
             <ProductCard
               key={id}
               name={product.name}
               image={product.gallery[0]}
               price={price ? price.currency.symbol + price.amount : null}
+              link={location + "/" + product.id}
+              onClick={(event) => event.stopPropagation()}
             />
           );
         })}

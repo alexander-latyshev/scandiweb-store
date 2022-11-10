@@ -1,0 +1,68 @@
+@import "../../styles/colors/colors.scss";
+@import "../../styles/fonts/fonts.scss";
+@import "../../styles/templates/templates.scss";
+
+.attributes-set {
+  display: flex;
+  flex-direction: column;
+  font-style: $ralewayFont;
+  margin-top: 22px;
+  h3 {
+    @include titleFonts($font-size-lg, $font-weght-bd, 100%);
+    @extend %h2Module;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-family: $robotoFont;
+  }
+  .attributes-container {
+    margin-top: 9px;
+    display: flex;
+
+    .attributes-set__text-btn {
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      margin-right: 12px;
+      height: 45px;
+      width: 63px;
+      font-family: $sourceFont;
+      font-style: normal;
+      font-weight: $font-size-sm;
+      font-size: 16px;
+      line-height: 18px;
+      user-select: none;
+      background-color: $whiteColor;
+      border: 1px solid $blackColor;
+      @include textSourceStyle($font-size-md, $font-weght-sm, 112%);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .attributes-set__swatch-btn {
+      width: 32px;
+      height: 32px;
+      border: none;
+      margin-right: 8px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .attributes-set__text-btn_active {
+      background-color: $blackColor;
+      color: $whiteColor;
+    }
+    .attributes-set__swatch-btn_active {
+      &::after {
+        display: block;
+        position: relative;
+        right: 8px;
+        bottom: 3px;
+        content: "";
+        outline: 2px solid #5ece7b;
+        width: 36px;
+        height: 36px;
+        pointer-events: none;
+      }
+    }
+  }
+}
