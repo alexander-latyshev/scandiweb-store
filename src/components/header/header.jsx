@@ -16,16 +16,7 @@ const Header = () => {
     dispatch(fetchCategoryNames());
   }, []);
 
-  if (!categories) {
-    return (
-      <Triangle
-        height={60}
-        width={60}
-        color="#5ece7b"
-        wrapperStyle={{ margin: 10 }}
-      />
-    );
-  }
+  if (!categories) return;
 
   if (location === "/") return <Navigate to={categories[0].name} />;
   return (
