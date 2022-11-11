@@ -23,7 +23,7 @@ const CategoryPage = () => {
         height={60}
         width={60}
         color="#5ece7b"
-        wrapperStyle={{ margin: 10 }}
+        wrapperStyle={{ margin: 100 }}
       />
     );
 
@@ -39,7 +39,7 @@ const CategoryPage = () => {
           });
           // if (!price) return;
           // return <span key={id}>{product.name}</span>;
-          
+
           return (
             <ProductCard
               key={id}
