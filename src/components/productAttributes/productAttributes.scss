@@ -1,39 +1,43 @@
-@import "../../styles/colors/colors.scss";
-@import "../../styles/fonts/fonts.scss";
-@import "../../styles/templates/templates.scss";
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/templates/templates.scss" as t;
+@use "../../styles/mixins/mixins.scss" as m;
 
 .attributes-set {
   display: flex;
   flex-direction: column;
-  font-style: $ralewayFont;
+  font-style: f.$ralewayFont;
   margin-top: 22px;
   h3 {
-    @include titleFonts($font-size-lg, $font-weght-bd, 100%);
+    @include m.titleFonts(f.$font-size-lg, f.$font-weght-bd, 100%);
     @extend %h2Module;
     text-transform: uppercase;
     margin-top: 20px;
-    font-family: $robotoFont;
+    font-family: f.$robotoFont;
   }
   .attributes-container {
     margin-top: 9px;
     display: flex;
-
+    .attributes-set__text-btn,
+    .attributes-set__swatch-btn,
+    .attributes-set__text-btn_active,
+    .attributes-set__swatch-btn_active {
+      box-shadow: c.$shadowColor;
+    }
     .attributes-set__text-btn {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
       margin-right: 12px;
       height: 45px;
       width: 63px;
-      font-family: $sourceFont;
+      font-family: f.$sourceFont;
       font-style: normal;
-      font-weight: $font-size-sm;
+      font-weight: f.$font-size-sm;
       font-size: 16px;
       line-height: 18px;
       user-select: none;
-      background-color: $whiteColor;
-      border: 1px solid $blackColor;
-      @include textSourceStyle($font-size-md, $font-weght-sm, 112%);
+      background-color: c.$whiteColor;
+      border: 1px solid c.$blackColor;
+      @include m.textSourceStyle(f.$font-size-md, f.$font-weght-sm, 112%);
+
       &:hover {
         cursor: pointer;
       }
@@ -43,25 +47,27 @@
       height: 32px;
       border: none;
       margin-right: 8px;
+      border: 1px solid rgba(168, 172, 176, 0.6);
       &:hover {
         cursor: pointer;
       }
     }
     .attributes-set__text-btn_active {
-      background-color: $blackColor;
-      color: $whiteColor;
+      background-color: c.$blackColor;
+      color: c.$whiteColor;
     }
     .attributes-set__swatch-btn_active {
       &::after {
         display: block;
         position: relative;
-        right: 8px;
-        bottom: 3px;
+        right: 9px;
+        bottom: 4px;
         content: "";
         outline: 2px solid #5ece7b;
         width: 36px;
         height: 36px;
         pointer-events: none;
+        border: none;
       }
     }
   }

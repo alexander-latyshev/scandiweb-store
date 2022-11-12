@@ -1,6 +1,6 @@
-@import "../../styles/colors/colors.scss";
-@import "../../styles/fonts/fonts.scss";
-@import "../../styles/templates/templates.scss";
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/templates/templates.scss" as t;
 
 .header {
   height: 80px;
@@ -8,9 +8,9 @@
   display: flex;
   position: fixed;
   justify-content: center;
-  background-color: $whiteColor;
+  background-color: c.$whiteColor;
   z-index: 1;
-  color: $blackColor;
+  color: c.$blackColor;
   .header__wrapper {
     display: flex;
     align-items: center;
@@ -20,18 +20,18 @@
     justify-content: space-between;
     .header__pagination-links {
       display: flex;
-      line-height: $line-height-md;
+      line-height: f.$line-height-md;
       align-items: flex-end;
       height: 65%;
       margin-top: auto;
       align-items: center;
       margin-left: 10px;
       a {
-        font: $font-size-md $ralewayFont;
+        font: f.$font-size-md f.$ralewayFont;
         text-decoration: none;
         margin-right: 16px;
         text-transform: uppercase;
-        color: $blackColor;
+        color: c.$blackColor;
         height: 100%;
         display: flex;
         justify-content: start;
@@ -40,11 +40,11 @@
         @extend %userSelect;
       }
       a:hover {
-        color: $greenColor;
+        color: c.$greenColor;
         cursor: pointer;
       }
       .header__link_acitve {
-        color: $greenColor;
+        color: c.$greenColor;
         border-bottom: 2px solid #5ece7b;
         margin-bottom: -2px;
       }

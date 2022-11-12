@@ -1,6 +1,6 @@
-@import "../../styles/colors/colors.scss";
-@import "../../styles/fonts/fonts.scss";
-@import "../../styles/templates/templates.scss";
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/templates/templates.scss" as t;
 
 .category {
   display: flex;
@@ -11,7 +11,7 @@
   h1 {
     @extend %fontModule;
     margin: 0;
-    font-size: $h1-font-size;
+    font-size: f.$h1-font-size;
     text-transform: capitalize;
     margin-left: 100px;
   }

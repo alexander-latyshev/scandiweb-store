@@ -1,5 +1,6 @@
-@import "../../../styles/colors/colors.scss";
-@import "../../../styles/fonts/fonts.scss";
+@use "../../../styles/colors/colors.scss" as c;
+@use "../../../styles/fonts/fonts.scss" as f;
+@use "../../../styles/variables/variables.scss" as v;
 
 .dropdown-cart {
   margin-top: 7px;
@@ -18,9 +19,9 @@
       top: 50px;
       right: 270px;
       z-index: 3;
-      background-color: $whiteColor;
-      border: 1px solid $hoverGreyColor;
-      filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+      background-color: c.$whiteColor;
+      border: 1px solid c.$hoverGreyColor;
+      filter: v.$dropShadow;
     }
   }
 }

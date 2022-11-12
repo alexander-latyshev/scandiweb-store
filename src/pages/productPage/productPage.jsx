@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductAttributes from "../../components/productAttributes/productAttributes";
 import { fetchProduct } from "../../redux/reducers/dataSlice";
 import { Interweave } from "interweave";
-import "./productPage.css";
 import ProductGallery from "../../components/productGallery/productGallery";
+import "./productPage.css";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
@@ -49,12 +49,11 @@ const ProductPage = () => {
     setSelectedAttributes(setAttribute);
   }
 
+  console.log(product);
+
   return (
     <section className="product-page">
-      <ProductGallery
-        gallery={product.gallery}
-        thumb={true}
-      />
+      <ProductGallery gallery={product.gallery} thumb={true} />
 
       <div className="product-info">
         <h2 className="product-info__title">{product.name}</h2>

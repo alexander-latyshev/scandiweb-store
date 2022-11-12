@@ -1,15 +1,16 @@
-@import "../../../styles/colors/colors.scss";
-@import "../../../styles/fonts/fonts.scss";
-@import "../../../styles/templates/templates.scss";
+@use "../../../styles/colors/colors.scss" as c;
+@use "../../../styles/fonts/fonts.scss" as f;
+@use "../../../styles/templates/templates.scss" as t;
+@use "../../../styles/mixins/mixins.scss" as m;
+@use "../../../styles/variables/variables.scss" as v;
 
 .currencies {
   display: flex;
   flex-direction: column;
-  width: auto;
   height: 30px;
   width: 40px;
   position: relative;
-  outline: $greenColor;
+  outline: c.$greenColor;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -17,7 +18,7 @@
   -ms-user-select: none;
   margin-top: 10px;
   margin-right: 5px;
-  @extend %textStyle;
+  @include m.textStyle(f.$font-size-lg, f.$strong-weight-md, 27px);
   .currencies__selected-item {
     display: flex;
     width: 30px;
@@ -45,17 +46,18 @@
     display: none;
   }
   .currencies__currency-list {
-    border: 1px solid $hoverGreyColor;
+    border: 1px solid c.$hoverGreyColor;
     position: relative;
     padding: 0;
     margin: 0;
     width: 114px;
     bottom: 10px;
     right: 30px;
-    filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
-    @extend %strongModule;
+    filter: v.$dropShadow;
+    // @extend %strongModule;
+    @include m.textStyle(f.$font-size-lg, f.$font-weght-md, 160%);
     li {
-      background-color: $whiteColor;
+      background-color: c.$whiteColor;
       list-style: none;
       height: 45px;
       width: 100%;
@@ -66,12 +68,12 @@
       justify-content: center;
       align-items: center;
       transition: color 150ms ease-in-out;
-    }
-    li:hover {
-      cursor: pointer;
-      user-select: none;
-      background: #eeeeee;
-      color: $greenColor;
+      &:hover {
+        cursor: pointer;
+        user-select: none;
+        background: #eeeeee;
+        color: c.$greenColor;
+      }
     }
   }
 }

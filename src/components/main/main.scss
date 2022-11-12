@@ -1,4 +1,4 @@
-@import "../../styles/colors/colors.scss";
+@use "../../styles/colors/colors.scss" as c;
 
 .main {
   // position: relative;
@@ -6,7 +6,7 @@
   width: 100%;
   min-height: 993px;
   margin: 0;
-  background-color: $whiteColor;
+  background-color: c.$whiteColor;
   padding: 0;
   padding-top: 80px;
   display: flex;

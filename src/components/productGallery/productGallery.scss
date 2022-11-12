@@ -1,6 +1,5 @@
-@import "../../styles/colors/colors.scss";
-@import "../../styles/fonts/fonts.scss";
-@import "../../styles/templates/templates.scss";
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/templates/templates.scss" as t;
 
 @mixin blockSize($w, $h) {
   min-width: calc($w / 10);
@@ -10,35 +9,38 @@
 }
 
 .product-gallery {
-  //   @include blockSize(611px, 511px);
   max-width: 730px;
   margin-top: 82px;
   display: flex;
   .product-gallery__thumb {
     display: flex;
     flex-direction: column;
-    margin-right: 5px;
+    margin-right: 40px;
     .product-gallery__img,
     .product-gallery__img_active {
       width: 79px;
       height: 80px;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
       @extend %userSelect;
       &:hover {
         cursor: pointer;
       }
     }
     .product-gallery__img_active {
-      outline: 2px solid $greenColor;
+      outline: 2px solid c.$greenColor;
       border-radius: 5px;
     }
   }
+  // .product-gallery__image-container {
+  //   display: flex;
+  //   flex-direction: column;
   .product-gallery__current-img {
+    width: 610px;
+    height: 511px;
     object-fit: contain;
-    width: 100%;
-    height: 100%;
     max-width: 611px;
     max-height: 511px;
     @extend %userSelect;
   }
 }
+// }

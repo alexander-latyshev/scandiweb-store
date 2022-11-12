@@ -1,0 +1,5 @@
+@use "../templates/templates.scss" as t;
+@use "../colors/colors.scss" as c;
+@use "../fonts/fonts.scss" as f;
+
+$dropShadow: drop-shadow(0px 4px 35px c.$shadowColor);

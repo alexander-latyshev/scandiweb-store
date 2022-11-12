@@ -1,19 +1,19 @@
-@import "../colors/colors.scss";
-@import "../fonts/fonts.scss";
+@use "../colors/colors.scss" as c;
+@use "../fonts/fonts.scss" as f;
 
 %fontModule {
-  color: $blackColor;
-  font: $font-size-lg $ralewayFont;
+  color: c.$blackColor;
+  font: f.$font-size-lg f.$ralewayFont;
 }
 
 %sourceFontModule {
-  color: $blackColor;
-  font: $font-size-md $sourceFont;
+  color: c.$blackColor;
+  font: f.$font-size-md f.$sourceFont;
 }
 
 %robotoFontModue {
-  color: $blackColor;
-  font: $font-size-md $robotoFont;
+  color: c.$blackColor;
+  font: f.$font-size-md f.$robotoFont;
 }
 
 %userSelect {
@@ -24,8 +24,8 @@
 }
 
 %strongModule {
-  color: $blackColor;
-  line-height: $line-height-lg;
+  color: c.$blackColor;
+  line-height: f.$line-height-lg;
   font-weight: 700;
   * {
     margin: 0;
@@ -36,8 +36,8 @@
 }
 
 %h2Module {
-  color: $blackColor;
-  font: $ralewayFont;
+  color: c.$blackColor;
+  font: f.$ralewayFont;
   text-transform: capitalize;
   margin: 0;
   padding: 0;
@@ -46,54 +46,7 @@
 %btnHoverModule {
   cursor: pointer;
   box-sizing: border-box;
-  -moz-box-shadow: 0 0 25px #5ece7b;
-  -webkit-box-shadow: 0 0 25px #5ece7b;
-  box-shadow: 0 0 25px #5ece7b;
-}
-
-@mixin button-cart($w, $h, $bc) {
-  width: $w;
-  height: $h;
-  background-color: $bc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  border: none;
-  color: $whiteColor;
-  padding: 0;
-  margin: 0;
-  transition: box-shadow 0.3s ease-in-out;
-  font: $font-size-md $ralewayFont;
-  line-height: $line-height-md;
-  font-weight: 600;
-  &:hover {
-    cursor: pointer;
-    box-sizing: border-box;
-    -moz-box-shadow: 0 0 5px $bc;
-    -webkit-box-shadow: 0 0 5px $bc;
-    box-shadow: 0 0 5px $bc;
-  }
-}
-
-@mixin titleFonts($s, $w, $lh) {
-  @extend %h2Module;
-  @extend %fontModule;
-  font: $ralewayFont;
-  font-size: $s;
-  font-weight: $w;
-  line-height: $lh;
-}
-
-@mixin textStyle($s, $w, $lh) {
-  font-size: $s;
-  font-weight: $w;
-  line-height: $lh;
-  @extend %fontModule;
-}
-@mixin textSourceStyle($s, $w, $lh) {
-  font-size: $s;
-  font-weight: $w;
-  line-height: $lh;
-  @extend %sourceFontModule;
+  -moz-box-shadow: 0 0 25px c.$greenColor;
+  -webkit-box-shadow: 0 0 25px c.$greenColor;
+  box-shadow: 0 0 25px c.$greenColor;
 }

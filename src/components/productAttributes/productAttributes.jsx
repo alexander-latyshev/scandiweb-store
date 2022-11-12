@@ -38,6 +38,7 @@ const ProductAttributes = (props) => {
                         attribute.type === "swatch" ? item.value : null,
                     }}
                     onClick={() => props.setAttribute(attribute.id, item.id)}
+                    draggable={false}
                   >
                     {attribute.type !== "swatch" ? item.value : null}
                   </button>

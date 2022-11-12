@@ -1,6 +1,8 @@
-@import "../../styles/colors/colors.scss";
-@import "../../styles/fonts/fonts.scss";
-@import "../../styles/templates/templates.scss";
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/templates/templates.scss" as t;
+@use "../../styles/variables/variables.scss" as v;
+@use "../../styles/mixins/mixins.scss" as m;
 
 @mixin fontz($fs, $fw) {
   font-size: $fs;
@@ -15,12 +17,12 @@
   max-width: 380px;
   height: 444px;
   text-decoration: none;
-  background: $whiteColor;
+  background: c.$whiteColor;
   text-align: start;
   padding: 16px;
-  filter: drop-shadow(0px 4px 35px $shadowColor);
-  -webkit-filter: drop-shadow(0px 4px 35px $shadowColor);
-  -moz-filter: drop-shadow(0px 4px 35px $shadowColor);
+  filter: v.$dropShadow;
+  -webkit-filter: v.$dropShadow;
+  -moz-filter: v.$dropShadow;
   @extend %userSelect;
   img {
     align-self: center;
@@ -33,16 +35,17 @@
     padding: 0;
     margin-top: 24px;
     @include fontz(18px, 300);
-    line-height: $line-height-lg;
+    @include m.textStyle(f.$font-size-lg, 300, f.$line-height-lg);
+    line-height: f.$line-height-lg;
   }
   strong {
     @extend %strongModule;
     list-style: none;
-    font-family: $ralewayFont;
+    font-family: f.$ralewayFont;
   }
   button {
     position: absolute;
-    background: #5ece7b;
+    background: c.$greenColor;
     background-image: url("../../assets/add-to-cart.svg");
     background-position: 50%;
     background-repeat: no-repeat;
@@ -61,8 +64,8 @@
     }
   }
   &:hover {
-    outline: 1px solid $hoverGreyColor;
-    box-shadow: 0px 4px 35px $shadowColor;
+    outline: 1px solid c.$hoverGreyColor;
+    box-shadow: 0px 4px 35px c.$shadowColor;
     button {
       visibility: visible;
       opacity: 1;

@@ -1,0 +1,60 @@
+@use "../colors/colors.scss" as c;
+@use "../fonts/fonts.scss" as f;
+@use "../templates/templates.scss" as t;
+
+@mixin button-cart($w, $h, $bc) {
+  width: $w;
+  height: $h;
+  background-color: $bc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: none;
+  color: c.$whiteColor;
+  padding: 0;
+  margin: 0;
+  transition: box-shadow 0.3s ease-in-out;
+  font: f.$font-size-md f.$ralewayFont;
+  line-height: f.$line-height-md;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-shadow: 0 0 5px $bc;
+    -webkit-box-shadow: 0 0 5px $bc;
+    box-shadow: 0 0 5px $bc;
+  }
+}
+
+@mixin titleFonts($s, $w, $lh) {
+  @extend %h2Module;
+  @extend %fontModule;
+  font: f.$ralewayFont;
+  font-size: $s;
+  font-weight: $w;
+  line-height: $lh;
+}
+
+@mixin textSourceStyle($s, $w, $lh) {
+  font-size: $s;
+  font-weight: $w;
+  line-height: $lh;
+  @extend %sourceFontModule;
+}
+
+@mixin blockSize($w, $h) {
+  min-width: calc($w / 10);
+  min-height: calc($h / 10);
+  max-width: $w;
+  max-height: $h;
+}
+
+@mixin textStyle($s, $w, $lh) {
+  font-size: $s;
+  font-weight: $w;
+  line-height: $lh;
+  @extend %fontModule;
+}
+
+$orange: orange;

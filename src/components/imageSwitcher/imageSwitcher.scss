@@ -1,16 +1,15 @@
-@import "../../styles/colors/colors.scss";
-@import "../../styles/fonts/fonts.scss";
-@import "../../styles/templates/templates.scss";
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/templates/templates.scss" as t;
 
 .image-switchers {
   display: flex;
   position: relative;
-  left: 0;
 
   .image-switchers__switch-btn {
     width: 24px;
     height: 24px;
-    background-color: rgba(0, 0, 0, 0.73);
+    background-color: rgba(0, 0, 0, 0.7);
     border: none;
     margin-right: 10px;
     transition: background-color 0.2s ease-in-out;
@@ -18,7 +17,7 @@
     background-position: center;
     &:hover {
       cursor: pointer;
-      background-color: $blackColor;
+      background-color: c.$blackColor;
     }
     &:active {
       background-color: black;

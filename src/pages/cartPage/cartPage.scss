@@ -1,0 +1,7 @@
+@use "../../styles/mixins/mixins.scss" as m;
+
+.cart-page {
+  .cart-page__title {
+    color: m.$orange;
+  }
+}

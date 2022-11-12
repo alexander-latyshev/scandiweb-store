@@ -8,6 +8,22 @@ const ProductGallery = (props) => {
   const handleChangeImage = (index) => {
     return setIndexImage(index);
   };
+  const galleryLength = props.gallery.length;
+
+  const prevImage = () => {
+    if (indexImage === 0) {
+      return setIndexImage(galleryLength - 1);
+    }
+    return setIndexImage(indexImage - 1);
+  };
+
+  const nextImage = () => {
+    if (indexImage > galleryLength - 2) {
+      return setIndexImage(0);
+    }
+    return setIndexImage(indexImage + 1);
+  };
+
   return (
     <div className="product-gallery">
       {props.thumb && props.gallery.length > 1 ? (
@@ -30,17 +46,16 @@ const ProductGallery = (props) => {
         </div>
       ) : null}
 
-      <div className="product-gallery__image-container">
+      <div className="product-gallery__gallery-container" draggable={false}>
         <img
           className="product-gallery__current-img"
           src={props.gallery[indexImage]}
           draggable={false}
         />
         <ImageSwitcher
-          index={indexImage}
-          setIndex={setIndexImage}
+          prevImage={prevImage}
+          nextImage={nextImage}
           switchers={props.switchers}
-          length={props.gallery.length}
         />
       </div>
     </div>
@@ -48,9 +63,3 @@ const ProductGallery = (props) => {
 };
 
 export default ProductGallery;
-{
-  /* <div className="button-wrapper">
-              <button onClick={() => prevImage()}>-</button>
-              <button onClick={() => nextImage()}>+</button>
-            </div>; */
-}

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./dropdownCart.css";
 
 const DropdownCart = () => {
@@ -9,6 +11,9 @@ const DropdownCart = () => {
     if (isVisible && cartRef.current && !cartRef.current.contains(event.target))
       setVisible(false);
   };
+  const currentCategory = useSelector(
+    (state) => state.router.location.pathname.split("/")[1]
+  );
   const pressToClose = (event) => {
     if (event.code === "Escape" && isVisible) setVisible(false);
   };
@@ -21,7 +26,6 @@ const DropdownCart = () => {
       document.body.removeEventListener("keydown", pressToClose, false);
     };
   });
-
   return (
     <div
       className="dropdown-cart"
@@ -38,6 +42,12 @@ const DropdownCart = () => {
             onClick={(event) => event.stopPropagation()}
           >
             <h1>BAG</h1>
+            <Link
+              to={currentCategory + "/cart"}
+              onClick={() => setVisible(false)}
+            >
+              BAG
+            </Link>
           </div>
         ) : null}
       </div>

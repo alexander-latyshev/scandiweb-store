@@ -1,19 +1,7 @@
-@import "../../styles/colors/colors.scss";
-@import "../../styles/fonts/fonts.scss";
-@import "../../styles/templates/templates.scss";
-
-@mixin blockSize($w, $h) {
-  min-width: calc($w / 10);
-  min-height: calc($h / 10);
-  max-width: $w;
-  max-height: $h;
-}
-@mixin textStyle($s, $w, $lh) {
-  font-size: $s;
-  font-weight: $w;
-  line-height: $lh;
-  @extend %fontModule;
-}
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/templates/templates.scss" as t;
+@use "../../styles/mixins/mixins.scss" as m;
 
 $padding-block-info: 12px;
 
@@ -23,34 +11,35 @@ $padding-block-info: 12px;
   width: 1260px;
   padding: 0 100px 190px;
   .product-info {
-    width: calc(410px - $padding-block-info * 2);
-    padding: 0 $padding-block-info;
+    width: calc(320px - $padding-block-info);
+    padding-left: $padding-block-info;
     display: flex;
     flex-direction: column;
     margin-top: 80px;
     margin-right: 13px;
     .product-info__title {
-      @include titleFonts($h2-font-size, $strong-weight-bd, 28px);
+      @include m.titleFonts(f.$h2-font-size, f.$strong-weight-bd, 28px);
     }
     .product-info__brand {
-      @include textStyle($h2-font-size, $font-weght-sm, 27px);
+      @include m.textStyle(f.$h2-font-size, f.$font-weght-sm, 27px);
       margin-top: 15px;
     }
     .product-info__price {
       @extend %strongModule;
       text-transform: uppercase;
       margin-top: 36px;
-      font-family: $robotoFont;
+      font-family: f.$robotoFont;
       font-weight: 700;
 
       p {
-        font-family: $ralewayFont;
+        font-family: f.$ralewayFont;
         font-size: 24px;
         font-weight: 700;
       }
     }
     .product-page__add-cart {
-      @include button-cart(292px, 52px, $greenColor);
+      @include m.button-cart(292px, 52px, c.$greenColor);
+      @extend %userSelect;
       margin-top: 30px;
       &:active {
         opacity: 0.9;
@@ -59,10 +48,10 @@ $padding-block-info: 12px;
     .product-page__description {
       margin-top: 40px;
       font-size: 16px;
-      font-family: $robotoFont;
+      font-family: f.$robotoFont;
       font-weight: 400;
-      color: $blackColor;
-      line-height: $line-height-lg;
+      color: c.$blackColor;
+      line-height: f.$line-height-lg;
     }
   }
 }
