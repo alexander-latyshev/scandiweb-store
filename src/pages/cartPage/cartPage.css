@@ -1,6 +1,89 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-.cart-page .cart-page__title {
-  color: orange;
+.cart .cart__empty-cart-title,
+.cart .cart__title, .cart .cart-payment span {
+  color: #1d1f22;
+  font: 18px "Raleway", sans-serif;
+}
+
+.cart .cart__empty-cart-title,
+.cart .cart__title {
+  color: #1d1f22;
+  font: "Raleway", sans-serif;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+}
+
+.cart {
+  width: 1260px;
+  padding: 0 90px;
+}
+.cart .cart__empty-cart-title,
+.cart .cart__title {
+  font: "Raleway", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: uppercase;
+  margin-top: 81px;
+}
+.cart .cart__title {
+  margin-left: 10px;
+}
+.cart .cart__empty-cart-title {
+  text-align: center;
+}
+.cart .cart__products-list {
+  border-bottom: 1px solid #e5e5e5;
+}
+.cart .cart-payment {
+  width: 279px;
+  height: 185px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 32px;
+  margin-bottom: 274px;
+}
+.cart .cart-payment span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.cart .cart-payment span h4 {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+.cart .cart-payment span strong {
+  font-weight: 700;
+}
+.cart .cart-payment .cart-payment__btn {
+  margin-top: 16px;
+  width: 279px;
+  height: 43px;
+  background-color: #5ece7b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: none;
+  color: #ffffff;
+  padding: 0;
+  transition: box-shadow 0.3s ease-in-out;
+  font: 16px "Raleway", sans-serif;
+  line-height: 120%;
+  font-weight: 600;
+}
+.cart .cart-payment .cart-payment__btn:hover {
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #5ece7b;
 }/*# sourceMappingURL=cartPage.css.map */

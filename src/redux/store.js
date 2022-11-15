@@ -19,7 +19,9 @@ export const storeReducer = combineReducers({
 export const store = configureStore({
   reducer: storeReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().prepend(routerMiddleware),
+    getDefaultMiddleware({
+      immutableCheck: false,
+    }).prepend(routerMiddleware),
 });
 
 export default store;

@@ -31,16 +31,29 @@
       border-radius: 5px;
     }
   }
-  // .product-gallery__image-container {
-  //   display: flex;
-  //   flex-direction: column;
-  .product-gallery__current-img {
-    width: 610px;
-    height: 511px;
+
+  .gallery-container {
+    .product-gallery__current-img {
+      width: 610px;
+      height: 511px;
+      object-fit: contain;
+      max-width: 611px;
+      max-height: 511px;
+      @extend %userSelect;
+    }
+  }
+}
+
+.product-gallery_cart-compressed {
+  max-width: 730px;
+  max-height: 288px;
+  margin: 0;
+  margin-top: min(24px);
+  margin-bottom: min(24px);
+  .product-gallery__current-img_cart-compressed {
+    width: 200px;
+    height: 288px;
     object-fit: contain;
-    max-width: 611px;
-    max-height: 511px;
     @extend %userSelect;
   }
 }
-// }

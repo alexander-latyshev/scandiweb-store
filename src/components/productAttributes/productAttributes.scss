@@ -7,17 +7,17 @@
   display: flex;
   flex-direction: column;
   font-style: f.$ralewayFont;
-  margin-top: 22px;
   h3 {
     @include m.titleFonts(f.$font-size-lg, f.$font-weght-bd, 100%);
     @extend %h2Module;
     text-transform: uppercase;
-    margin-top: 20px;
+    margin-top: 2px;
     font-family: f.$robotoFont;
   }
   .attributes-container {
     margin-top: 9px;
     display: flex;
+    margin-bottom: 28px;
     .attributes-set__text-btn,
     .attributes-set__swatch-btn,
     .attributes-set__text-btn_active,

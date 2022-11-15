@@ -1,7 +1,7 @@
 @use "../colors/colors.scss" as c;
 @use "../fonts/fonts.scss" as f;
 
-%fontModule {
+%ralewayFontModule {
   color: c.$blackColor;
   font: f.$font-size-lg f.$ralewayFont;
 }
@@ -11,7 +11,7 @@
   font: f.$font-size-md f.$sourceFont;
 }
 
-%robotoFontModue {
+%robotoFontModule {
   color: c.$blackColor;
   font: f.$font-size-md f.$robotoFont;
 }

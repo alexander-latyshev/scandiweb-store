@@ -23,11 +23,16 @@ $padding-block-info: 12px;
     .product-info__brand {
       @include m.textStyle(f.$h2-font-size, f.$font-weght-sm, 27px);
       margin-top: 15px;
+      margin-bottom: 40px;
     }
     .product-info__price {
       @extend %strongModule;
       text-transform: uppercase;
-      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0px;
+      height: 60px;
       font-family: f.$robotoFont;
       font-weight: 700;
 
@@ -37,13 +42,20 @@ $padding-block-info: 12px;
         font-weight: 700;
       }
     }
-    .product-page__add-cart {
-      @include m.button-cart(292px, 52px, c.$greenColor);
+    .product-page__add-cart,
+    .product-page__add-cart_out-stock {
       @extend %userSelect;
       margin-top: 30px;
       &:active {
         opacity: 0.9;
       }
+    }
+    .product-page__add-cart {
+      @include m.button-cart(292px, 52px, c.$greenColor);
+    }
+    .product-page__add-cart_out-stock {
+      @include m.button-cart(292px, 52px, c.$blackColor);
+      margin-top: 30px;
     }
     .product-page__description {
       margin-top: 40px;

@@ -1,0 +1,45 @@
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/templates/templates.scss" as t;
+@use "../../styles/mixins/mixins.scss" as m;
+@use "../../styles/variables/variables.scss" as v;
+
+.product-quantity {
+  width: 45px;
+  height: 288px;
+  margin-right: 24px;
+  margin-left: auto;
+  margin-top: min(24px);
+  margin-bottom: min(24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    @extend %ralewayFontModule;
+    line-height: f.$line-height-lg;
+    font-size: 24px;
+    font-weight: 500;
+    @extend %userSelect;
+  }
+  button {
+    @include m.buttonStyle(45px, 45px, white);
+    border: 1px solid c.$blackColor;
+    transition: background 0.3s ease-in-out;
+    &:hover {
+      background-color: c.$blackColor;
+    }
+    &:first-child {
+      background-image: url("../../assets/plus-btn.png");
+      &:hover {
+        background-image: url("../../assets/plus-btn_active.png");
+      }
+    }
+    &:last-child {
+      background-image: url("../../assets/minus-btn.png");
+      &:hover {
+        background-image: url("../../assets/minus-btn_active.png");
+      }
+    }
+  }
+}

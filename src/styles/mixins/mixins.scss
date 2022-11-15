@@ -13,7 +13,6 @@
   border: none;
   color: c.$whiteColor;
   padding: 0;
-  margin: 0;
   transition: box-shadow 0.3s ease-in-out;
   font: f.$font-size-md f.$ralewayFont;
   line-height: f.$line-height-md;
@@ -29,7 +28,7 @@
 
 @mixin titleFonts($s, $w, $lh) {
   @extend %h2Module;
-  @extend %fontModule;
+  @extend %ralewayFontModule;
   font: f.$ralewayFont;
   font-size: $s;
   font-weight: $w;
@@ -54,7 +53,25 @@
   font-size: $s;
   font-weight: $w;
   line-height: $lh;
-  @extend %fontModule;
+  @extend %ralewayFontModule;
+}
+@mixin buttonStyle($w, $h, $c) {
+  width: $w;
+  height: $h;
+  background-color: $c;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-justify: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 $orange: orange;

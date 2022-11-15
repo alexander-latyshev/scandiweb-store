@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProductAttributes from "../../components/productAttributes/productAttributes";
 import { fetchProduct } from "../../redux/reducers/dataSlice";
-import { Interweave } from "interweave";
+import ProductAttributes from "../../components/productAttributes/productAttributes";
 import ProductGallery from "../../components/productGallery/productGallery";
+import { Interweave } from "interweave";
 import "./productPage.css";
+import { addProductToCart } from "../../redux/reducers/storeSlice";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
@@ -34,8 +35,19 @@ const ProductPage = () => {
 
   if (!product) return;
   const currentPrice = product.prices.find((price) => {
-    return price.currency.label === selectedCurrency;
+    return selectedCurrency
+      ? price.currency.label === selectedCurrency.label
+      : null;
   });
+
+  const addToCart = () => {
+    const newProduct = {
+      product: product,
+      selectedAttributes: selectedAttributes,
+    };
+
+    dispatch(addProductToCart(newProduct));
+  };
 
   function setAttribute(attrID, itemID) {
     const setAttribute = selectedAttributes.map((attr) => {
@@ -49,8 +61,6 @@ const ProductPage = () => {
     setSelectedAttributes(setAttribute);
   }
 
-  console.log(product);
-
   return (
     <section className="product-page">
       <ProductGallery gallery={product.gallery} thumb={true} />
@@ -62,6 +72,7 @@ const ProductPage = () => {
           attrs={product.attributes}
           selectedAttributes={selectedAttributes}
           setAttribute={setAttribute}
+          selector={true}
         />
         <strong className="product-info__price">
           price:
@@ -71,7 +82,18 @@ const ProductPage = () => {
               : null}
           </p>
         </strong>
-        <button className="product-page__add-cart">Add to cart</button>
+        {product.inStock ? (
+          <button
+            className="product-page__add-cart"
+            onClick={() => addToCart()}
+          >
+            Add to cart
+          </button>
+        ) : (
+          <button className="product-page__add-cart_out-stock">
+            Out stock
+          </button>
+        )}
         <Interweave
           content={product.description}
           className="product-page__description"

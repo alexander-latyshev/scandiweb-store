@@ -35,7 +35,7 @@ const CurrencyList = () => {
 
   if (!currencies) return;
   const currentCurrency = currencies.find((currency) => {
-    return currency.label === selectedCurrency;
+    return currency.label === selectedCurrency.label;
   });
 
   function changeCurrencyHandler(setCurrency) {
@@ -59,7 +59,7 @@ const CurrencyList = () => {
       <ul className={`currencies__currency-list${!isVisible ? "_hidden" : ""}`}>
         {currencies.map((currency, id) => {
           return (
-            <li key={id} onClick={() => changeCurrencyHandler(currency.label)}>
+            <li key={id} onClick={() => changeCurrencyHandler(currency)}>
               {currency.symbol} {currency.label}
             </li>
           );

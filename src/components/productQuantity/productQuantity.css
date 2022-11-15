@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+.product-quantity span {
+  color: #1d1f22;
+  font: 18px "Raleway", sans-serif;
+}
+
+.product-quantity span {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.product-quantity {
+  width: 45px;
+  height: 288px;
+  margin-right: 24px;
+  margin-left: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-quantity span {
+  line-height: 160%;
+  font-size: 24px;
+  font-weight: 500;
+}
+.product-quantity button {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-justify: center;
+  border: 1px solid #1d1f22;
+  transition: background 0.3s ease-in-out;
+}
+.product-quantity button:hover {
+  cursor: pointer;
+}
+.product-quantity button:hover {
+  background-color: #1d1f22;
+}
+.product-quantity button:first-child {
+  background-image: url("../../assets/plus-btn.png");
+}
+.product-quantity button:first-child:hover {
+  background-image: url("../../assets/plus-btn_active.png");
+}
+.product-quantity button:last-child {
+  background-image: url("../../assets/minus-btn.png");
+}
+.product-quantity button:last-child:hover {
+  background-image: url("../../assets/minus-btn_active.png");
+}/*# sourceMappingURL=productQuantity.css.map */

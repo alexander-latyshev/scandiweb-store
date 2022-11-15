@@ -1,14 +1,20 @@
+import classNames from "classnames";
 import React from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ImageSwitcher from "../imageSwitcher/imageSwitcher";
 import "./productGallery.css";
 
 const ProductGallery = (props) => {
   const [indexImage, setIndexImage] = useState(0);
+  const galleryLength = props.gallery.length;
+  const cartLocation = useSelector(
+    (state) => state.router.location.pathname.split("/")[2]
+  );
+
   const handleChangeImage = (index) => {
     return setIndexImage(index);
   };
-  const galleryLength = props.gallery.length;
 
   const prevImage = () => {
     if (indexImage === 0) {
@@ -25,7 +31,13 @@ const ProductGallery = (props) => {
   };
 
   return (
-    <div className="product-gallery">
+    <div
+      className={
+        props.type === "cart"
+          ? "product-gallery_cart-compressed"
+          : "product-gallery"
+      }
+    >
       {props.thumb && props.gallery.length > 1 ? (
         <div className="product-gallery__thumb">
           {props.gallery.map((img, index) => {
@@ -46,17 +58,22 @@ const ProductGallery = (props) => {
         </div>
       ) : null}
 
-      <div className="product-gallery__gallery-container" draggable={false}>
+      <div className="gallery-container" draggable={false}>
         <img
-          className="product-gallery__current-img"
+          className={classNames("product-gallery__current-img", {
+            "product-gallery__current-img_cart-compressed":
+              props.type === "cart",
+          })}
           src={props.gallery[indexImage]}
           draggable={false}
         />
-        <ImageSwitcher
-          prevImage={prevImage}
-          nextImage={nextImage}
-          switchers={props.switchers}
-        />
+        {props.gallery.length > 1 ? (
+          <ImageSwitcher
+            prevImage={prevImage}
+            nextImage={nextImage}
+            switchers={props.switchers}
+          />
+        ) : null}
       </div>
     </div>
   );

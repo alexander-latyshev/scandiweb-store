@@ -1,7 +1,53 @@
 @use "../../styles/mixins/mixins.scss" as m;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/templates/templates.scss" as t;
 
-.cart-page {
-  .cart-page__title {
-    color: m.$orange;
+.cart {
+  width: 1260px;
+  padding: 0 90px;
+  .cart__empty-cart-title,
+  .cart__title {
+    @include m.titleFonts(32px, f.$font-weght-bd, f.$line-height-md);
+    text-transform: uppercase;
+    margin-top: 81px;
+  }
+  .cart__title {
+    margin-left: 10px;
+  }
+  .cart__empty-cart-title {
+    text-align: center;
+  }
+  .cart__products-list {
+    border-bottom: 1px solid c.$borderColor;
+  }
+  .cart-payment {
+    width: 279px;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-top: 32px;
+    margin-bottom: 274px;
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 8px;
+      @include m.textStyle(24px, f.$font-weght-sm, f.$line-height-md);
+      h4 {
+        padding: 0;
+        margin: 0;
+        font-weight: 400;
+      }
+      strong {
+        font-weight: 700;
+      }
+    }
+    .cart-payment__btn {
+      margin-top: 16px;
+      @include m.button-cart(279px, 43px, c.$greenColor);
+    }
   }
 }

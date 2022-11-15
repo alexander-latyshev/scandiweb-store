@@ -1,0 +1,37 @@
+@use "../../styles/colors/colors.scss" as c;
+@use "../../styles/templates/templates.scss" as t;
+@use "../../styles/fonts/fonts.scss" as f;
+@use "../../styles/mixins/mixins.scss" as m;
+
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  border-top: 1px solid c.$borderColor;
+  display: flex;
+  width: 100%;
+  margin-top: 55px;
+  .product-row__info {
+    display: flex;
+    flex-direction: column;
+    .product-row__title {
+      @include m.titleFonts(
+        f.$h2-font-size,
+        f.$title-weight-md,
+        f.$line-height-sm
+      );
+      margin-top: 25px;
+    }
+    .product-row__brand {
+      @include m.textStyle(f.$h2-font-size, f.$font-weght-sm, 27px);
+      margin-top: 19px;
+    }
+    .product-row__price {
+      @extend %strongModule;
+      @extend %ralewayFontModule;
+      font-size: 24px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}

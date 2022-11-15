@@ -1,9 +1,17 @@
 import { FETCH_CURRENCIES } from "../../apollo/queries";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  current,
+  original,
+} from "@reduxjs/toolkit";
 import client from "../../apollo/client";
+import _ from "lodash";
 
 const initialState = {
   selectedCurrency: null,
+  cartProducts: [],
+  cartTotalQuantity: 0,
 };
 
 export const fetchDefaultCurrency = createAsyncThunk(
@@ -12,7 +20,7 @@ export const fetchDefaultCurrency = createAsyncThunk(
     const response = await client.query({
       query: FETCH_CURRENCIES,
     });
-    return response.data.currencies[0].label;
+    return response.data.currencies[0];
   }
 );
 
@@ -24,6 +32,71 @@ export const storeSlice = createSlice({
       return {
         ...state,
         selectedCurrency: action.payload,
+      };
+    },
+
+    addProductToCart: (state, { payload }) => {
+      let isSameProduct = false;
+      const newCartProducts = state.cartProducts.map((item) => {
+        const isEqual = _.isEqual(
+          item.selectedAttributes,
+          payload.selectedAttributes
+        );
+
+        if (item.product.id === payload.product.id && isEqual) {
+          isSameProduct = true;
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+
+      if (!isSameProduct || newCartProducts.length === 0) {
+        state.cartProducts.push({ ...payload, quantity: 1 });
+        state.cartTotalQuantity += 1;
+      } else {
+        return {
+          ...state,
+          cartProducts: newCartProducts,
+          cartTotalQuantity: state.cartTotalQuantity + 1,
+        };
+      }
+    },
+
+    changeProductQuantity: (state, action) => {
+      const { id, count, selectedAttributes } = action.payload;
+      const newCartProducts = state.cartProducts.map((item) => {
+        const isEqual = _.isEqual(item.selectedAttributes, selectedAttributes);
+        if (item.product.id === id && isEqual) {
+          return {
+            ...item,
+            quantity: item.quantity + count,
+          };
+        }
+        return item;
+      });
+
+      return {
+        ...state,
+        cartProducts: newCartProducts,
+        cartTotalQuantity: state.cartTotalQuantity + count,
+      };
+    },
+
+    removeProduct: (state, action) => {
+      const { id, selectedAttributes } = action.payload;
+      const filteredProducts = state.cartProducts.filter((item) => {
+        const isEqual = _.isEqual(item.selectedAttributes, selectedAttributes);
+        if (item.product.id === id && isEqual) return;
+        return item;
+      });
+
+      return {
+        ...state,
+        cartProducts: filteredProducts,
+        cartTotalQuantity: state.cartTotalQuantity - 1,
       };
     },
   },
@@ -39,6 +112,11 @@ export const storeSlice = createSlice({
   },
 });
 
-export const { changeCurrency } = storeSlice.actions;
+export const {
+  changeCurrency,
+  addProductToCart,
+  changeProductQuantity,
+  removeProduct,
+} = storeSlice.actions;
 
 export default storeSlice.reducer;

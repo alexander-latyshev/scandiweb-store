@@ -1,7 +1,6 @@
 import React from "react";
 import "./productAttributes.css";
 import classNames from "classnames";
-import { useEffect, useState } from "react";
 
 const ProductAttributes = (props) => {
   if (!props) return;
@@ -37,7 +36,11 @@ const ProductAttributes = (props) => {
                       backgroundColor:
                         attribute.type === "swatch" ? item.value : null,
                     }}
-                    onClick={() => props.setAttribute(attribute.id, item.id)}
+                    onClick={
+                      props.selector
+                        ? () => props.setAttribute(attribute.id, item.id)
+                        : null
+                    }
                     draggable={false}
                   >
                     {attribute.type !== "swatch" ? item.value : null}

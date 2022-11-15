@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   font-style: "Raleway", sans-serif;
-  margin-top: 22px;
 }
 .attributes-set h3 {
   font: "Raleway", sans-serif;
@@ -31,12 +30,13 @@
   font-weight: 700;
   line-height: 100%;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 2px;
   font-family: "Roboto Condensed", sans-serif;
 }
 .attributes-set .attributes-container {
   margin-top: 9px;
   display: flex;
+  margin-bottom: 28px;
 }
 .attributes-set .attributes-container .attributes-set__text-btn,
 .attributes-set .attributes-container .attributes-set__swatch-btn,

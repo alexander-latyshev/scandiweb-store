@@ -10,7 +10,7 @@
 }
 
 .product-card {
-  @extend %fontModule;
+  @extend %ralewayFontModule;
   display: flex;
   flex-direction: column;
   z-index: 0;

@@ -35,11 +35,10 @@ const CategoryPage = () => {
         {products.map((product, id) => {
           if (!product) return;
           const price = product.prices.find((value) => {
-            return value.currency.label === selectedCurrency;
+            return selectedCurrency
+              ? value.currency.label === selectedCurrency.label
+              : null;
           });
-          // if (!price) return;
-          // return <span key={id}>{product.name}</span>;
-
           return (
             <ProductCard
               key={id}

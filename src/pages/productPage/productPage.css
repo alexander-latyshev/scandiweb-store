@@ -6,7 +6,8 @@
   font: 18px "Raleway", sans-serif;
 }
 
-.product-page .product-info .product-page__add-cart {
+.product-page .product-info .product-page__add-cart,
+.product-page .product-info .product-page__add-cart_out-stock {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -58,10 +59,15 @@
   font-weight: 400;
   line-height: 27px;
   margin-top: 15px;
+  margin-bottom: 40px;
 }
 .product-page .product-info .product-info__price {
   text-transform: uppercase;
-  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0px;
+  height: 60px;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 700;
 }
@@ -69,6 +75,14 @@
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 700;
+}
+.product-page .product-info .product-page__add-cart,
+.product-page .product-info .product-page__add-cart_out-stock {
+  margin-top: 30px;
+}
+.product-page .product-info .product-page__add-cart:active,
+.product-page .product-info .product-page__add-cart_out-stock:active {
+  opacity: 0.9;
 }
 .product-page .product-info .product-page__add-cart {
   width: 292px;
@@ -81,20 +95,37 @@
   border: none;
   color: #ffffff;
   padding: 0;
-  margin: 0;
   transition: box-shadow 0.3s ease-in-out;
   font: 16px "Raleway", sans-serif;
   line-height: 120%;
   font-weight: 600;
-  margin-top: 30px;
 }
 .product-page .product-info .product-page__add-cart:hover {
   cursor: pointer;
   box-sizing: border-box;
   box-shadow: 0 0 5px #5ece7b;
 }
-.product-page .product-info .product-page__add-cart:active {
-  opacity: 0.9;
+.product-page .product-info .product-page__add-cart_out-stock {
+  width: 292px;
+  height: 52px;
+  background-color: #1d1f22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: none;
+  color: #ffffff;
+  padding: 0;
+  transition: box-shadow 0.3s ease-in-out;
+  font: 16px "Raleway", sans-serif;
+  line-height: 120%;
+  font-weight: 600;
+  margin-top: 30px;
+}
+.product-page .product-info .product-page__add-cart_out-stock:hover {
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #1d1f22;
 }
 .product-page .product-info .product-page__description {
   margin-top: 40px;
