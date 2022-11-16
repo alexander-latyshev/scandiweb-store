@@ -49,7 +49,7 @@
   max-height: $h;
 }
 
-@mixin textStyle($s, $w, $lh) {
+@mixin textRalewayStyle($s, $w, $lh) {
   font-size: $s;
   font-weight: $w;
   line-height: $lh;
@@ -73,5 +73,3 @@
     cursor: pointer;
   }
 }
-
-$orange: orange;

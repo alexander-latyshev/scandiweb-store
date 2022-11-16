@@ -6,7 +6,6 @@ import ProductPage from "../../pages/productPage/productPage";
 import CartPage from "../../pages/cartPage/cartPage";
 
 const Main = () => {
-
   return (
     <main className="main">
       <Routes>

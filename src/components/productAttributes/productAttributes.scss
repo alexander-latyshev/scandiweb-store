@@ -60,16 +60,6 @@
       background-color: c.$blackColor;
       color: c.$whiteColor;
     }
-    // .attributes-set__text-btn_bag-compressed {
-    //   width: 32px;
-    //   height: 24px;
-    //   font-size: 10px;
-    //   padding: 0;
-    //   margin-right: 6px;
-    //   &:hover {
-    //     cursor: default;
-    //   }
-    // }
 
     .attributes-set__swatch-btn_active {
       &::after {
@@ -113,7 +103,7 @@
     margin-right: 6px !important;
     padding: 0;
     &:hover {
-      cursor: default;
+      cursor: default !important;
     }
   }
 }

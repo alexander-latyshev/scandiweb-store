@@ -9,7 +9,7 @@
   margin-top: 90px;
   padding-bottom: 190px;
   h1 {
-    @extend %fontModule;
+    @extend %ralewayFontModule;
     margin: 0;
     font-size: f.$h1-font-size;
     text-transform: capitalize;

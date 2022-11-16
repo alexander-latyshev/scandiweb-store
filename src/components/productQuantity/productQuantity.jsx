@@ -1,4 +1,3 @@
-import { isNonEmptyArray } from "@apollo/client/utilities";
 import classNames from "classnames";
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -36,7 +35,6 @@ const ProductQuantity = (props) => {
           "product-quantity__btn_bag-compressed": props.type === "bag",
           "product-quantity__remove-btn": props.quantity === 1,
         })}
-        // style={props.quantity === 1 ? { backgroundImage: "none" } : null}
         onClick={
           props.quantity > 1
             ? () =>

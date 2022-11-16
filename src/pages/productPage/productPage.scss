@@ -21,7 +21,7 @@ $padding-block-info: 12px;
       @include m.titleFonts(f.$h2-font-size, f.$strong-weight-bd, 28px);
     }
     .product-info__brand {
-      @include m.textStyle(f.$h2-font-size, f.$font-weght-sm, 27px);
+      @include m.textRalewayStyle(f.$h2-font-size, f.$font-weght-sm, 27px);
       margin-top: 15px;
       margin-bottom: 40px;
     }
@@ -35,7 +35,6 @@ $padding-block-info: 12px;
       height: 60px;
       font-family: f.$robotoFont;
       font-weight: 700;
-
       p {
         font-family: f.$ralewayFont;
         font-size: 24px;

@@ -127,5 +127,5 @@
   padding: 0;
 }
 .attributes-set__bag-compressed .attributes-set__text-btn:hover {
-  cursor: default;
+  cursor: default !important;
 }/*# sourceMappingURL=productAttributes.css.map */

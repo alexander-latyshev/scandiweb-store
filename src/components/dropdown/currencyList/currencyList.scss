@@ -17,7 +17,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   margin-top: 10px;
-  @include m.textStyle(f.$font-size-lg, f.$strong-weight-md, 27px);
+  @include m.textRalewayStyle(f.$font-size-lg, f.$strong-weight-md, 27px);
   .currencies__selected-item {
     display: flex;
     width: 30px;
@@ -53,8 +53,7 @@
     bottom: 10px;
     right: 30px;
     filter: v.$dropShadow;
-    // @extend %strongModule;
-    @include m.textStyle(f.$font-size-lg, f.$font-weght-md, 160%);
+    @include m.textRalewayStyle(f.$font-size-lg, f.$font-weght-md, 160%);
     li {
       background-color: c.$whiteColor;
       list-style: none;
