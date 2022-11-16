@@ -1,5 +1,6 @@
 import React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrencies } from "../../../redux/reducers/dataSlice";
 import {
@@ -8,23 +9,25 @@ import {
 } from "../../../redux/reducers/storeSlice";
 import "./currencyList.css";
 
-const CurrencyList = () => {
-  const [isVisible, setVisible] = useState(false);
+const CurrencyList = (props) => {
   const dispatch = useDispatch();
   const currencies = useSelector((state) => state.data.currencies);
   const selectedCurrency = useSelector((state) => state.store.selectedCurrency);
-  const listRef = useRef(null);
-  const handleClickOutside = (event) => {
-    if (isVisible && listRef.current && !listRef.current.contains(event.target))
-      setVisible(false);
+
+  const curRef = useRef(null);
+  const handleClickOutside = (e) => {
+    if (props.isVisible && curRef.current && !curRef.current.contains(e.target))
+      props.setVisible(false);
   };
-  const pressToClose = (event) => {
-    if (event.code === "Escape" && isVisible) setVisible(false);
+
+  const pressToClose = (e) => {
+    if (e.code === "Escape" && props.isVisible) props.setVisible(false);
   };
 
   useEffect(() => {
     if (!currencies) dispatch(fetchCurrencies());
     if (selectedCurrency === null) dispatch(fetchDefaultCurrency());
+
     document.body.addEventListener("mousedown", handleClickOutside, true);
     document.body.addEventListener("keydown", pressToClose, false);
     return () => {
@@ -39,24 +42,30 @@ const CurrencyList = () => {
   });
 
   function changeCurrencyHandler(setCurrency) {
-    setVisible(false);
+    props.setVisible(false);
     dispatch(changeCurrency(setCurrency));
   }
-  
+
   return (
     <div
       className="currencies"
       onClick={(e) => e.stopPropagation()}
-      ref={listRef}
+      ref={curRef}
     >
       <span
-        onClick={() => setVisible(!isVisible)}
-        className={`currencies__selected-item${isVisible ? "_active" : ""}`}
+        onClick={() => props.setVisible(!props.isVisible)}
+        className={`currencies__selected-item${
+          props.isVisible ? "_active" : ""
+        }`}
       >
         {currentCurrency.symbol}
       </span>
 
-      <ul className={`currencies__currency-list${!isVisible ? "_hidden" : ""}`}>
+      <ul
+        className={`currencies__currency-list${
+          !props.isVisible ? "_hidden" : ""
+        }`}
+      >
         {currencies.map((currency, id) => {
           return (
             <li key={id} onClick={() => changeCurrencyHandler(currency)}>

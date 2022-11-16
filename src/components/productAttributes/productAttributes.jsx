@@ -8,8 +8,19 @@ const ProductAttributes = (props) => {
     <>
       {props.attrs.map((attribute, id) => {
         return (
-          <div key={id} className="attributes-set">
-            <h3 className="attributes-set__title">{attribute.name}:</h3>
+          <div
+            key={id}
+            className={classNames("attributes-set", {
+              "attributes-set__bag-compressed": props.type === "bag",
+            })}
+          >
+            <h3
+              className={classNames("attributes-set__title", {
+                "attributes-set__title_bag-compressed": props.type === "bag",
+              })}
+            >
+              {attribute.name}:
+            </h3>
             <div className="attributes-container">
               {attribute.items.map((item, id) => {
                 const isSelected = props.selectedAttributes
@@ -31,6 +42,10 @@ const ProductAttributes = (props) => {
                         isSelected && attribute.type !== "swatch",
                       "attributes-set__swatch-btn_active":
                         isSelected && attribute.type === "swatch",
+                      // "attributes-set__text-btn_bag-compressed":
+                      //   attribute.type !== "swatch" && props.type === "bag",
+                      "attributes-set__swatch-btn_bag-compressed":
+                        attribute.type === "swatch" && props.type === "bag",
                     })}
                     style={{
                       backgroundColor:

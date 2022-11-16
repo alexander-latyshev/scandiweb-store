@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-.attributes-set h3 {
+.attributes-set .attributes-set__title, .attributes-set .attributes-set__title_bag-compressed {
   color: #1d1f22;
   font: 18px "Raleway", sans-serif;
 }
@@ -11,7 +11,7 @@
   font: 16px "Source Sans Pro", sans-serif;
 }
 
-.attributes-set h3 {
+.attributes-set .attributes-set__title, .attributes-set .attributes-set__title_bag-compressed {
   color: #1d1f22;
   font: "Raleway", sans-serif;
   text-transform: capitalize;
@@ -24,7 +24,7 @@
   flex-direction: column;
   font-style: "Raleway", sans-serif;
 }
-.attributes-set h3 {
+.attributes-set .attributes-set__title {
   font: "Raleway", sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -32,6 +32,13 @@
   text-transform: uppercase;
   margin-top: 2px;
   font-family: "Roboto Condensed", sans-serif;
+}
+.attributes-set .attributes-set__title_bag-compressed {
+  font: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 90%;
+  text-transform: uppercase;
 }
 .attributes-set .attributes-container {
   margin-top: 9px;
@@ -91,4 +98,34 @@
   height: 36px;
   pointer-events: none;
   border: none;
+}
+.attributes-set .attributes-container .attributes-set__swatch-btn_bag-compressed {
+  width: 18px;
+  height: 18px;
+}
+.attributes-set .attributes-container .attributes-set__swatch-btn_bag-compressed::after {
+  width: 20px;
+  height: 20px;
+  right: 8px;
+  bottom: 3px;
+}
+.attributes-set .attributes-container .attributes-set__swatch-btn_bag-compressed:hover {
+  cursor: default;
+}
+
+.attributes-set__bag-compressed {
+  height: 55px;
+}
+.attributes-set__bag-compressed .attributes-set__title {
+  margin-top: 8px;
+}
+.attributes-set__bag-compressed .attributes-set__text-btn {
+  width: 32px !important;
+  height: 24px !important;
+  font-size: 10px !important;
+  margin-right: 6px !important;
+  padding: 0;
+}
+.attributes-set__bag-compressed .attributes-set__text-btn:hover {
+  cursor: default;
 }/*# sourceMappingURL=productAttributes.css.map */

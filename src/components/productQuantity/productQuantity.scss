@@ -26,6 +26,11 @@
     @include m.buttonStyle(45px, 45px, white);
     border: 1px solid c.$blackColor;
     transition: background 0.3s ease-in-out;
+    @extend %ralewayFontModule;
+    line-height: f.$line-height-lg;
+    font-size: 16px;
+    font-weight: 500;
+    @extend %userSelect;
     &:hover {
       background-color: c.$blackColor;
     }
@@ -39,7 +44,29 @@
       background-image: url("../../assets/minus-btn.png");
       &:hover {
         background-image: url("../../assets/minus-btn_active.png");
+        color: white;
       }
     }
+  }
+  .product-quantity__remove-btn {
+    background-image: none !important;
+  }
+}
+
+.product-quantity_bag-compressed {
+  height: 180px;
+  width: 24px;
+  margin-right: 4px;
+  margin-left: auto;
+  margin-top: min(5px);
+  margin-bottom: min(5px);
+  span {
+    font-size: 16px;
+  }
+  .product-quantity__btn_bag-compressed {
+    width: 24px;
+    height: 24px;
+    background-size: 16px;
+    font-size: 12px;
   }
 }

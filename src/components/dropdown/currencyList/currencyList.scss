@@ -17,7 +17,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   margin-top: 10px;
-  margin-right: 5px;
   @include m.textStyle(f.$font-size-lg, f.$strong-weight-md, 27px);
   .currencies__selected-item {
     display: flex;

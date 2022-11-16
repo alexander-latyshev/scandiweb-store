@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-.product-quantity span {
+.product-quantity span, .product-quantity button {
   color: #1d1f22;
   font: 18px "Raleway", sans-serif;
 }
 
-.product-quantity span {
+.product-quantity span, .product-quantity button {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -46,6 +46,9 @@
   text-justify: center;
   border: 1px solid #1d1f22;
   transition: background 0.3s ease-in-out;
+  line-height: 160%;
+  font-size: 16px;
+  font-weight: 500;
 }
 .product-quantity button:hover {
   cursor: pointer;
@@ -64,4 +67,26 @@
 }
 .product-quantity button:last-child:hover {
   background-image: url("../../assets/minus-btn_active.png");
+  color: white;
+}
+.product-quantity .product-quantity__remove-btn {
+  background-image: none !important;
+}
+
+.product-quantity_bag-compressed {
+  height: 180px;
+  width: 24px;
+  margin-right: 4px;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.product-quantity_bag-compressed span {
+  font-size: 16px;
+}
+.product-quantity_bag-compressed .product-quantity__btn_bag-compressed {
+  width: 24px;
+  height: 24px;
+  background-size: 16px;
+  font-size: 12px;
 }/*# sourceMappingURL=productQuantity.css.map */

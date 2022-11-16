@@ -1,3 +1,5 @@
+import { isNonEmptyArray } from "@apollo/client/utilities";
+import classNames from "classnames";
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -9,8 +11,15 @@ import "./productQuantity.css";
 const ProductQuantity = (props) => {
   const dispatch = useDispatch();
   return (
-    <div className="product-quantity">
+    <div
+      className={classNames("product-quantity", {
+        "product-quantity_bag-compressed": props.type === "bag",
+      })}
+    >
       <button
+        className={classNames("product-quantity__btn", {
+          "product-quantity__btn_bag-compressed": props.type === "bag",
+        })}
         onClick={() =>
           dispatch(
             changeProductQuantity({
@@ -23,6 +32,11 @@ const ProductQuantity = (props) => {
       />
       <span>{props.quantity}</span>
       <button
+        className={classNames("product-quantity__btn", {
+          "product-quantity__btn_bag-compressed": props.type === "bag",
+          "product-quantity__remove-btn": props.quantity === 1,
+        })}
+        // style={props.quantity === 1 ? { backgroundImage: "none" } : null}
         onClick={
           props.quantity > 1
             ? () =>
@@ -41,7 +55,9 @@ const ProductQuantity = (props) => {
                   })
                 )
         }
-      />
+      >
+        {props.quantity === 1 ? "del" : null}
+      </button>
     </div>
   );
 };

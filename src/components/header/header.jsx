@@ -2,16 +2,20 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategoryNames } from "../../redux/reducers/dataSlice";
 import { Link, Navigate } from "react-router-dom";
-import { Triangle } from "react-loader-spinner";
 import logo from "../../assets/store-logo.svg";
 import "./header.css";
 import CurrencyList from "../dropdown/currencyList/currencyList";
 import DropdownCart from "../dropdown/dropdownCart/dropdownCart";
+import { useState } from "react";
+import classNames from "classnames";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const [isCurVisible, setCurVisible] = useState(false);
+  const [isBagVisible, setBagVisible] = useState(false);
   const location = useSelector((state) => state.router.location.pathname);
   const categories = useSelector((state) => state.data.categoryNames);
+
   useEffect(() => {
     dispatch(fetchCategoryNames());
   }, []);
@@ -21,6 +25,11 @@ const Header = () => {
   if (location === "/") return <Navigate to={categories[0].name} />;
   return (
     <header className="header">
+      <div
+        className={classNames("header__backdrop", {
+          header__backdrop_active: isBagVisible || isCurVisible,
+        })}
+      />
       <div className="header__wrapper">
         <nav className="header__pagination-links">
           {categories
@@ -46,8 +55,8 @@ const Header = () => {
         <img src={logo} className="header__logo" draggable={false} />
 
         <div className="header__dropdown">
-          <CurrencyList />
-          <DropdownCart />
+          <CurrencyList isVisible={isCurVisible} setVisible={setCurVisible} />
+          <DropdownCart isVisible={isBagVisible} setVisible={setBagVisible} />
         </div>
       </div>
     </header>

@@ -1,16 +1,12 @@
 import classNames from "classnames";
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import ImageSwitcher from "../imageSwitcher/imageSwitcher";
 import "./productGallery.css";
 
 const ProductGallery = (props) => {
   const [indexImage, setIndexImage] = useState(0);
   const galleryLength = props.gallery.length;
-  const cartLocation = useSelector(
-    (state) => state.router.location.pathname.split("/")[2]
-  );
 
   const handleChangeImage = (index) => {
     return setIndexImage(index);
@@ -29,14 +25,12 @@ const ProductGallery = (props) => {
     }
     return setIndexImage(indexImage + 1);
   };
-
   return (
     <div
-      className={
-        props.type === "cart"
-          ? "product-gallery_cart-compressed"
-          : "product-gallery"
-      }
+      className={classNames("product-gallery", {
+        "product-gallery_cart-compressed": props.type === "cart",
+        "product-gallery_bag-compressed": props.type === "bag",
+      })}
     >
       {props.thumb && props.gallery.length > 1 ? (
         <div className="product-gallery__thumb">
@@ -58,11 +52,18 @@ const ProductGallery = (props) => {
         </div>
       ) : null}
 
-      <div className="gallery-container" draggable={false}>
+      <div
+        className={classNames("gallery-container", {
+          "gallery-container_bag-compressed": props.type === "bag",
+          "gallery-container_cart-compressed": props.type === "cart",
+        })}
+        draggable={false}
+      >
         <img
           className={classNames("product-gallery__current-img", {
             "product-gallery__current-img_cart-compressed":
               props.type === "cart",
+            "product-gallery__current-img_bag-compressed": props.type === "bag",
           })}
           src={props.gallery[indexImage]}
           draggable={false}
@@ -72,6 +73,7 @@ const ProductGallery = (props) => {
             prevImage={prevImage}
             nextImage={nextImage}
             switchers={props.switchers}
+            type={props.type}
           />
         ) : null}
       </div>

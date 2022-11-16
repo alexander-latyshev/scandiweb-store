@@ -7,12 +7,16 @@
   display: flex;
   flex-direction: column;
   font-style: f.$ralewayFont;
-  h3 {
+  .attributes-set__title {
     @include m.titleFonts(f.$font-size-lg, f.$font-weght-bd, 100%);
     @extend %h2Module;
     text-transform: uppercase;
     margin-top: 2px;
     font-family: f.$robotoFont;
+  }
+  .attributes-set__title_bag-compressed {
+    @include m.titleFonts(14px, f.$font-weght-sm, f.$line-height-sm);
+    text-transform: uppercase;
   }
   .attributes-container {
     margin-top: 9px;
@@ -56,6 +60,17 @@
       background-color: c.$blackColor;
       color: c.$whiteColor;
     }
+    // .attributes-set__text-btn_bag-compressed {
+    //   width: 32px;
+    //   height: 24px;
+    //   font-size: 10px;
+    //   padding: 0;
+    //   margin-right: 6px;
+    //   &:hover {
+    //     cursor: default;
+    //   }
+    // }
+
     .attributes-set__swatch-btn_active {
       &::after {
         display: block;
@@ -69,6 +84,36 @@
         pointer-events: none;
         border: none;
       }
+    }
+    .attributes-set__swatch-btn_bag-compressed {
+      width: 18px;
+      height: 18px;
+      &::after {
+        width: 20px;
+        height: 20px;
+        right: 8px;
+        bottom: 3px;
+      }
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+}
+
+.attributes-set__bag-compressed {
+  height: 55px;
+  .attributes-set__title {
+    margin-top: 8px;
+  }
+  .attributes-set__text-btn {
+    width: 32px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+    margin-right: 6px !important;
+    padding: 0;
+    &:hover {
+      cursor: default;
     }
   }
 }

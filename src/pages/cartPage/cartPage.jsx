@@ -41,6 +41,7 @@ const CartPage = () => {
                   id={product.id}
                   quantity={item.quantity}
                   item={item}
+                  type={"cart"}
                 />
               );
             })}

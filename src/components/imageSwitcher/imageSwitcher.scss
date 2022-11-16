@@ -33,3 +33,13 @@
     background-image: url("../../assets/switch-img-right.svg");
   }
 }
+
+.image-switchers_bag-compressed {
+  bottom: 35px;
+  left: 55px;
+  width: 48px;
+  .image-switchers__switch-btn {
+    height: 20px;
+    width: 20px;
+  }
+}

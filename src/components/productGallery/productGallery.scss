@@ -50,10 +50,27 @@
   margin: 0;
   margin-top: min(24px);
   margin-bottom: min(24px);
-  .product-gallery__current-img_cart-compressed {
-    width: 200px;
-    height: 288px;
-    object-fit: contain;
-    @extend %userSelect;
+  .gallery-container_cart-compressed {
+    .product-gallery__current-img_cart-compressed {
+      width: 200px;
+      height: 288px;
+      object-fit: contain;
+      @extend %userSelect;
+    }
+  }
+}
+
+.product-gallery_bag-compressed {
+  width: 121px;
+  height: 190px;
+  margin: 0;
+  .gallery-container_bag-compressed {
+    margin: 0;
+    .product-gallery__current-img_bag-compressed {
+      width: 111px;
+      height: 190px;
+      object-fit: contain;
+      @extend %userSelect;
+    }
   }
 }

@@ -1,20 +1,55 @@
 @use "../../../styles/colors/colors.scss" as c;
 @use "../../../styles/fonts/fonts.scss" as f;
 @use "../../../styles/variables/variables.scss" as v;
+@use "../../../styles/mixins/mixins.scss" as m;
+
+$padding-x: 6px;
+$padding-y: 32px;
 
 .dropdown-cart {
-  margin-top: 7px;
-  .dropdown-cart__btn {
+  height: 40px;
+  margin-top: 5px;
+  width: 45px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+  @extend %userSelect;
+  .dropdown-cart__count {
+    align-items: center;
+    border: 1px solid #1d1f22;
     display: flex;
-    flex-direction: column;
-    width: 30px;
-    height: 30px;
+    font-size: 14px;
+    font-style: normal;
+    justify-content: center;
+    text-transform: uppercase;
+    position: absolute;
+    background-color: #1d1f22;
+    border-radius: 50%;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 700;
+    height: 18px;
+    line-height: 16px;
+    width: 18px;
+    display: flex;
+    z-index: 1;
+  }
+  .dropdown-cart__btn {
     background: url("../../../assets/cart.svg") no-repeat center;
     cursor: pointer;
+    height: 30px;
+    margin-right: 13px;
+    width: 30px;
+    position: relative;
+    top: 6px;
+    left: 5px;
+    z-index: 0;
     .dropdown-cart__menu {
       cursor: default;
-      width: 325px;
-      min-height: 677px;
+      width: calc(325px - $padding-x * 2);
+      min-height: 200px;
+      max-height: calc(677px - $padding-y * 2);
+      padding: $padding-y $padding-x;
       position: relative;
       top: 50px;
       right: 270px;
@@ -22,6 +57,67 @@
       background-color: c.$whiteColor;
       border: 1px solid c.$hoverGreyColor;
       filter: v.$dropShadow;
+      display: flex;
+      flex-direction: column;
+      .dropdown-cart__empty-cart-title {
+        @include m.titleFonts(18px, f.$font-weght-bd, f.$line-height-md);
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .dropdown-cart__title {
+        @include m.titleFonts(
+          f.$font-size-md,
+          f.$title-weight-bd,
+          f.$line-height-lg
+        );
+        margin-bottom: 32px;
+        span {
+          font-weight: 500;
+        }
+      }
+      .dropdown-cart__products-list {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .dropdown-cart__total {
+        display: flex;
+        justify-content: space-between;
+        @extend %robotoFontModule;
+        margin-top: auto;
+        width: 100%;
+        margin-top: 16px;
+        span:first-child {
+          font-weight: 500;
+        }
+        span:last-child {
+          font-weight: 700;
+        }
+      }
+      .dropdown-cart__btns {
+        margin-top: 32px;
+        display: flex;
+        justify-content: space-between;
+        .dropdown-cart__view-btn,
+        .dropdown-cart__check-btn {
+          text-decoration: none;
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+        .dropdown-cart__view-btn {
+          @include m.buttonStyle(140px, 43px, c.$blackColor);
+          background-color: white;
+          border: 1px solid c.$blackColor;
+          color: c.$blackColor;
+          font-weight: 600;
+          text-transform: uppercase;
+          @extend %ralewayFontModule;
+        }
+        .dropdown-cart__check-btn {
+          @include m.button-cart(140px, 43px, c.$greenColor);
+        }
+      }
     }
   }
 }

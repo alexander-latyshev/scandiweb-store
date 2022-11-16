@@ -18,12 +18,25 @@
   z-index: 1;
   color: #1d1f22;
 }
+.header .header__backdrop {
+  position: fixed;
+  display: none;
+  background: rgba(57, 55, 72, 0.22);
+  width: 100%;
+  height: calc(100% - 80px);
+  bottom: 0;
+}
+.header .header__backdrop_active {
+  position: fixed;
+  display: block;
+}
 .header .header__wrapper {
   display: flex;
   align-items: center;
   width: 1260px;
   height: 100%;
   padding: 0 90px;
+  padding-right: 80px;
   justify-content: space-between;
 }
 .header .header__wrapper .header__pagination-links {
@@ -64,6 +77,6 @@
 .header .header__wrapper .header__dropdown {
   display: flex;
   align-items: center;
-  margin-right: 6px;
+  margin-right: 3px;
   height: 100%;
 }/*# sourceMappingURL=header.css.map */
