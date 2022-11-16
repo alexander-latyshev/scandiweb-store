@@ -54,8 +54,13 @@ $padding-block-info: 12px;
       @include m.button-cart(292px, 52px, c.$greenColor);
     }
     .product-page__add-cart_out-stock {
+      @extend %userSelect;
       @include m.button-cart(292px, 52px, c.$blackColor);
+      opacity: 0.4;
       margin-top: 30px;
+      &:active {
+        opacity: 0.4;
+      }
     }
     .product-page__description {
       margin-top: 40px;

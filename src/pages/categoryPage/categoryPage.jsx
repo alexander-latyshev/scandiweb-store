@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../redux/reducers/dataSlice";
 import { Triangle } from "react-loader-spinner";
 import ProductCard from "../../components/productCard/productCard";
+import { addProductToCart } from "../../redux/reducers/storeSlice";
 
 const CategoryPage = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,24 @@ const CategoryPage = () => {
   useEffect(() => {
     dispatch(fetchProducts(selectedCategory));
   });
+
+  const addToCartHandler = (event, product) => {
+    event.preventDefault();
+    const setAttributes = product.attributes.map((attribute) => {
+      return {
+        ...attribute,
+        attribute: attribute.id,
+        item: attribute.items[0].id,
+      };
+    });
+
+    const newProduct = {
+      product: { ...product, quantity: 1 },
+      selectedAttributes: setAttributes,
+    };
+
+    dispatch(addProductToCart(newProduct));
+  };
 
   if (!products)
     return (
@@ -47,6 +66,9 @@ const CategoryPage = () => {
               price={price ? price.currency.symbol + price.amount : null}
               link={location + "/" + product.id}
               onClick={(event) => event.stopPropagation()}
+              addToCart={addToCartHandler}
+              product={product}
+              inStock={product.inStock}
             />
           );
         })}

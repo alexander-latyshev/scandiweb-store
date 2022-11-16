@@ -120,12 +120,16 @@
   font: 16px "Raleway", sans-serif;
   line-height: 120%;
   font-weight: 600;
+  opacity: 0.4;
   margin-top: 30px;
 }
 .product-page .product-info .product-page__add-cart_out-stock:hover {
   cursor: pointer;
   box-sizing: border-box;
   box-shadow: 0 0 5px #1d1f22;
+}
+.product-page .product-info .product-page__add-cart_out-stock:active {
+  opacity: 0.4;
 }
 .product-page .product-info .product-page__description {
   margin-top: 40px;

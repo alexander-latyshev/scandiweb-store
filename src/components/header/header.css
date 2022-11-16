@@ -59,6 +59,7 @@
   justify-content: start;
   align-items: start;
   transition: color 0.2s ease-in-out;
+  z-index: 1;
 }
 .header .header__wrapper .header__pagination-links a:hover {
   color: #5ece7b;

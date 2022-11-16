@@ -51,6 +51,7 @@
         align-items: start;
         transition: color 0.2s ease-in-out;
         @extend %userSelect;
+        z-index: 1;
       }
       a:hover {
         color: c.$greenColor;

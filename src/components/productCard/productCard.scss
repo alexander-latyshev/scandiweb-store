@@ -72,3 +72,14 @@
     }
   }
 }
+.product-card_out-stock {
+  opacity: 0.5;
+  &::before {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    content: "OUT OF STOCK";
+    @include m.textStyle(24px, f.$font-weght-sm, f.$line-height-lg);
+    color: c.$greyColor;
+  }
+}
