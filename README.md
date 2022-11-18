@@ -19,4 +19,4 @@
 - Apollo GraphQL
 - React Router
 - SASS
-- About other u can check 'package.json'
+- About other u can check `package.json`
