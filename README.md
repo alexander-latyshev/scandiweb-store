@@ -11,3 +11,11 @@
 - Clone this repository `git clone`
 - Install dependencies `git ci`
 - Run App `npm start`
+
+### Technologies used
+
+- React (functional components)
+- Redux Toolkit
+- Apollo GraphQL
+- React Router
+- SASS
