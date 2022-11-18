@@ -14,8 +14,9 @@
 
 ### Technologies used
 
-- React (functional components)
+- ReactJS (functional components)
 - Redux Toolkit
 - Apollo GraphQL
 - React Router
 - SASS
+- About other u can check 'package.json'
